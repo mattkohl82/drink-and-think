@@ -1,19 +1,19 @@
-var fetchChoice = "";
 $("#dropdown").change(function(){
     var selected = $(this).val(); //get selected option
     if (selected === "1") {//Ingredient 
         $("#searchTerm").val("");
-        fetchChoice = "filter.php?i="
+
     } 
     if (selected === "2") {//Drink name
         $("#searchTerm").val("");
-        fetchChoice = "search.php?s="
     }
 });
+  
+
 $("#searchBtn").on("click", function() {
     const searchTerm = document.querySelector("#searchTerm").value;
     //console.log(searchTerm)
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/' + fetchChoice + searchTerm)
+    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + searchTerm)
     .then((response) => {
         return response.json();
     })
@@ -31,8 +31,6 @@ $("#searchBtn").on("click", function() {
         } else {
             //have the user retry because their search did not return a result
         }
-        //console.log(data)
-        //console.log(data.meals[0])
         drinkData = data.drinks[0]//TO DO:define this var in the if/else if/else appropriately
         var ingredients = [];
         var measurements = [];
@@ -104,3 +102,35 @@ $("#searchBtn").on("click", function() {
     getVideo();
     });
 });
+
+
+$("#searchBtn").on("click", function() {
+    const searchTerm = document.querySelector("#searchTerm").value;
+    //console.log(searchTerm)
+    fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + searchTerm)
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        console.log(data)
+        $("#response-container").empty();//clears last searched recipe
+        
+        
+        for (var i = 0; i < 5; i++) {
+            
+            let drinkType = data.drinks[i].strDrink;
+        console.log(drinkType);
+        }
+
+        
+
+            
+            
+        
+});
+})
+
+
+
+
+    

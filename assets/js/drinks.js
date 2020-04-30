@@ -22,7 +22,7 @@ $("#searchBtn").on("click", function() {
         $("#response-container").empty();//clears last searched recipe
         var drinkData = "";
         if (data.drinks.length > 1){
-            //show the user all of the meals
+            //show the user all of the drinks
             //make them selectable, whichever one they choose should return a number for that meals' position in the data.drinks array
             //the number returned should be used to set drinkData, see next line
             //drinkData = data.drinks[x]   where x relates to whichever meal they clicked

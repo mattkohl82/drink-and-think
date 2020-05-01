@@ -14,10 +14,10 @@ $("#dropdown").change(function(){
             //console.log(searchTerm)
         });
     }    
-    if (selected === "2") {//Meal name
+    if (selected === "2") {//Meal name search
         $("#searchBtn").on("click", function() {
             const searchTerm = document.querySelector("#searchTerm").value;
-            mealSearch(searchTerm);//run ingredient search function
+            mealSearch(searchTerm);//run meal search function
             //console.log(searchTerm)
             getVideo(searchTerm);
         });
@@ -38,7 +38,7 @@ function ingredientSearch(searchTerm) {
         if (data.meals.length > 1){
             mealData = data.meals[i]
             //show the user all of the meals
-            for (var i = 0; i < data.meals.length; i++) {// display each city stored in local storage
+            for (var i = 0; i < data.meals.length; i++) {
                 var mealType = data.meals[i].strMeal;
                 var mealPic = data.meals[i].strMealThumb;
                 console.log (data.meals[i].strMeal)

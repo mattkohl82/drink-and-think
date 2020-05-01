@@ -78,7 +78,6 @@ function mealSearch(searchTerm) {
             //make them selectable, whichever one they choose should return a number for that meals' position in the data.meals array
             //the number returned should be used to set mealData, see next line
             //mealData = data.meals[x]   where x relates to whichever meal they clicked
-
         } else if (data.meals.length == 1) {
             //mealData = data.meals[0]
         } else {

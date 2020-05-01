@@ -18,7 +18,7 @@ $("#dropdown").change(function(){
             const searchTerm = document.querySelector("#searchTerm").value;
             drinkSearch(searchTerm);//run drink name search function
             //console.log(searchTerm)
-            getVideo(searchTerm, 'drinks');
+            getVideo(searchTerm, 'cocktail recipe');
         });
     }
 });
@@ -114,7 +114,7 @@ function getVideo(searchTerm) {
     url: 'https://www.googleapis.com/youtube/v3/search',
     data: {
         key: 'AIzaSyCXrLm90ax9VG8A7XtCk5gfbB_UD-vOqi4',
-        q: searchTerm + 'drinks',//this can be used if no video provided in array
+        q: 'how to make a' + searchTerm + 'cocktail recipe',//this can be used if no video provided in array
         //q: videoID,
         part: 'snippet',
         maxResults: 1,

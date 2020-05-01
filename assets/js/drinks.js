@@ -84,6 +84,10 @@ function drinkSearch(searchTerm) {
         //create object from JSON where ingredients are listed
         var drinkName = $("<h1>").addClass().text(data.drinks[0].strDrink);
         var ingredientsTitle = $("<h3>").addClass().text("Ingredients")
+        var img =  $("<img>").attr("src", data.drinks[0].strDrinkThumb).attr('id', 'drinkPic')
+        
+        
+        $("#response-container").append(img);
         $("#response-container").append(drinkName);
         $("#response-container").append(ingredientsTitle);
         //iterate over each key/value in dictionary

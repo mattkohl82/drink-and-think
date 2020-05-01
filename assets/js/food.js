@@ -4,6 +4,7 @@ $("#dropdown").change(function(){
     var selected = $(this).val(); //get selected option
     if (selected === "1") {//Ingredient search
         $("#searchTerm").val("");
+        $("#response-container").empty();
         $("#searchBtn").on("click", function() {
             const searchTerm = document.querySelector("#searchTerm").value;
             ingredientSearch(searchTerm);//run ingredient search function
@@ -12,6 +13,7 @@ $("#dropdown").change(function(){
     }    
     if (selected === "2") {//Meal name
         $("#searchTerm").val("");
+        $("#response-container").empty();
         $("#searchBtn").on("click", function() {
             const searchTerm = document.querySelector("#searchTerm").value;
             mealSearch(searchTerm);//run ingredient search function
@@ -158,7 +160,6 @@ function mealSearch(searchTerm) {
         }
         getVideo();
     });
-    
 }
 
 

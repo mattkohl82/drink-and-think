@@ -31,7 +31,8 @@ function ingredientSearch(searchTerm) {
         //console.log(data)
         //console.log(data.meals.length)
     
-        $("#response-container").empty();//clears last searched recipe
+        $("#response-container").empty();
+        //clears last searched recipe
         var mealData = "";
         
         if (data.meals.length > 1){
@@ -70,7 +71,8 @@ function mealSearch(searchTerm) {
     })
     .then((data) => {
         console.log(data)
-        $("#response-container").empty();//clears last searched recipe
+        $("#response-container").empty();
+        //clears last searched recipe
         var mealData = "";
             /* 
             //make them selectable, whichever one they choose should return a number for that meals' position in the data.meals array

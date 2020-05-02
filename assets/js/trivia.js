@@ -173,7 +173,7 @@ $('[name="trivia-difficulty"]').change(function(){
 $("#playBtn").on("click", function(e) {
     e.preventDefault();
     $("#game-container").show();
-    startGame();
+    playGame();
 });
 //convert html Characters in array back to text before displaying
 function decodeHtml(html) {
@@ -181,3 +181,10 @@ function decodeHtml(html) {
     txt.innerHTML = html;
     return txt.value;
 }
+
+playGame = () => {
+    questionCounter = 0;
+    score = 0;
+    availableQuestions = [...questions];
+    getNewQuestion();
+};

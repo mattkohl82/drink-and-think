@@ -167,6 +167,18 @@ display: none;
     padding: 1.5rem;
     color: #000000;
 }
+/* STATUS*/
+#status {
+    display: flex;
+    justify-content: space-between;
+}
+.status-type {
+    text-align: center;
+    font-size: 1.8rem;
+}
+.status-text {
+    text-align: center;
+}
 /* BUTTONS */
 .btn {
 font-size: 1.8rem;

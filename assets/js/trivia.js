@@ -1,7 +1,10 @@
-
 var selectedAmount;
 var selectedCategory;
 var selectedDifficulty;
+var timeLeft = 120;
+const timerEl = document.getElementById("countdown");
+const timerElzero = document.getElementById("countdown-0");
+const scoreText = document.getElementById("score");
 const question = document.getElementById("question");
 const choices = Array.from($(".choice-text"));
 console.log(choices)
@@ -183,8 +186,18 @@ function decodeHtml(html) {
 }
 
 playGame = () => {
-    questionCounter = 0;
     score = 0;
     availableQuestions = [...questions];
-    getNewQuestion();
-};
+    
+    var timeInterval = setInterval(function () {
+        timeLeft--;
+        timerEl.textContent = timeLeft;
+
+    if (timeLeft === 0) {
+            displayScore();
+            clearInterval(timeInterval);
+        }
+    
+    }, 1000);
+    //getQuestion();
+    };

@@ -1,0 +1,19 @@
+body {
+    background-color: black;
+}
+
+.nav-container {
+    background-color: rgb(75, 75, 75);
+    overflow: hidden;
+    width: 100%;
+
+}
+
+.container p {
+    color: black;
+    font-weight: bolder;
+    font-family: cursive;
+    /* display: inline-block; */
+    font-size: 18px;
+    float: right;
+}

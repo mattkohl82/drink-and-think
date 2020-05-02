@@ -1,9 +1,10 @@
 body {
-    background-image: url(drinks.jpg);
+    /* background-image: url(drinks.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(drinks.jpg);
 }
 
 /* .top-bar, .top-bar-left ul {
@@ -11,13 +12,14 @@ body {
 } */
 
 .content {
-    background-color: black;
+    /* background-color: black; */
     opacity: 0.85;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
 .content header {
     color: white;
     text-align: center;

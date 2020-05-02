@@ -8,6 +8,8 @@ body {
 
 .top-bar, .top-bar-left ul {
     background: orange;
+    flex-wrap: nowrap;
+    justify-content: stretch;
 }
 
 .content {

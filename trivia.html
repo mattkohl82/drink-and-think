@@ -33,10 +33,11 @@
                 <form action method="post" class="form">
                     <h3>Build your game!</h3>
                     <label for="trivia-questions">Number of Questions</label>
-                    <input type="number" name="trivia-questions" id="trivia-questions" class="options" min="1" max="50" value="10">
+                    <input type="number" name="trivia-questions" id="trivia-questions" class="options" min="1" max="50" placeholder="Enter amount or use arrows">
                     </br>
                     <label for="trivia-category">Category</label>
                     <select name="trivia-category" class="options">
+                        <option value="">Please select</option>
                         <option value="any">Random</option>
                         <option value="9">General Knowledge</option>
                         <option value="10">Entertainment: Books</option>
@@ -66,13 +67,14 @@
                     </br>
                     <label for="trivia-difficulty">Difficulty</label>
                     <select name="trivia-difficulty" class="options">
+                        <option value="">Please select</option>
                         <option value="any">Random</option>
                         <option value="easy">Easy</option>
                         <option value="medium">Medium</option>
                         <option value="hard">Hard</option>
                     </select>
                     </br>
-                    <button class="btn play flex-center" type="submit">Play!</button>
+                    <button id="playBtn" class="btn play flex-center" type="submit">Play!</button>
                 </form>
             </div>
             <!--Game questions/play-->

@@ -6,24 +6,22 @@ var selectedDifficulty;
 //get number of questions selected to put in APIUrl
 $("#trivia-questions").on("input", function(){
     selectedAmount = $(this).val();
-    console.log("number of questions - " + selectedAmount);
+    //console.log("number of questions - " + selectedAmount);
 });
 //get value of category selected to put in APIUrl
 $('[name="trivia-category"]').change(function(){
     selectedCategory = ('&category=' + $(this).children("option:selected").val());
-    console.log("category value - " + selectedCategory);
+    //console.log("category value - " + selectedCategory);
 });
 //get value of difficulty selected to put in APIUrl
 $('[name="trivia-difficulty"]').change(function(){
     selectedDifficulty = ('&difficulty=' + $(this).children("option:selected").val());
-    console.log("difficulty - " + selectedDifficulty);
+    //console.log("difficulty - " + selectedDifficulty);
 });
 
 $("#playBtn").on("click", function(e) {
     e.preventDefault();
-    console.log("play button was clicked")
-    //console.log('https://opentdb.com/api.php?amount=' + selectedAmount + selectedCategory + selectedDifficulty + '&type=multiple')
-    //fetch('https://opentdb.com/api.php?amount=' + selectedAmount + selectedCategory + selectedDifficulty + '&type=multiple')
+    //console.log("play button was clicked")
     //if both random category and random is selected: each question will be a random category/level of difficulty
     if (selectedCategory === "&category=any" && selectedDifficulty === "&difficulty=any") {
         fetch('https://opentdb.com/api.php?amount=' + selectedAmount + '&type=multiple')

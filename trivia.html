@@ -5,31 +5,96 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Trivia - Play</title>
-        <link rel="stylesheet" href="./assets/css/triviamain.css" />
         <link rel="stylesheet" href="./assets/css/trivia.css">
     </head>
+    <header>
+        <!--correct navbar will go here-->
+        <h1>
+            <a href="./main.html">Drink and Think</a>
+        </h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="./drinkspage.html">Drinks</a>
+                </li>
+                <li>
+                    <a href="./trivia.html">Trivia</a>
+                </li>
+        </nav>
+    </header>
     <body>
-        <div class="container">
-            <div id="game" class="justify-center flex-column">
-                <h2 id="quesiton">What is the answer to this question?</h2>
-                <div class="choice-container">
-                    <p class="choice-prefix">A</p>
-                    <p class="choice-text" data-number="1">Choice 1</p>
-                </div>
-                <div class="choice-container">
-                    <p class="choice-prefix">B</p>
-                    <p class="choice-text" data-number="2">Choice 2</p>
-                </div>
-                <div class="choice-container">
-                    <p class="choice-prefix">C</p>
-                    <p class="choice-text" data-number="3">Choice 3</p>
-                </div>
-                <div class="choice-container">
-                    <p class="choice-prefix">D</p>
-                    <p class="choice-text" data-number="4">Choice 4</p>
-                </div>
-                </div>
+        <div class="row">
+            <!--Setup Game-->
+            <div class="column left">
+                <form action method="post" class="form">
+                    <h3>Build your game!</h3>
+                    <label for="trivia-questions">Number of Questions:</label>
+                    <input type="number" name="trivia-questions" id="trivia-questions" class="options" min="1" max="50" value="10">
+                    </br>
+                    <label for="trivia-category">Select Category:</label>
+                    <select name="trivia_category" class="options">
+                        <option value="any">Any Category</option>
+                        <option value="9">General Knowledge</option>
+                        <option value="10">Entertainment: Books</option>
+                        <option value="11">Entertainment: Film</option>
+                        <option value="12">Entertainment: Music</option>
+                        <option value="13">Entertainment: Musicals &amp; Theatres</option>
+                        <option value="14">Entertainment: Television</option>
+                        <option value="15">Entertainment: Video Games</option>
+                        <option value="16">Entertainment: Board Games</option>
+                        <option value="17">Science &amp; Nature</option>
+                        <option value="18">Science: Computers</option>
+                        <option value="19">Science: Mathematics</option>
+                        <option value="20">Mythology</option>
+                        <option value="21">Sports</option>
+                        <option value="22">Geography</option>
+                        <option value="23">History</option>
+                        <option value="24">Politics</option>
+                        <option value="25">Art</option>
+                        <option value="26">Celebrities</option>
+                        <option value="27">Animals</option>
+                        <option value="28">Vehicles</option>
+                        <option value="29">Entertainment: Comics</option>
+                        <option value="30">Science: Gadgets</option>
+                        <option value="31">Entertainment: Japanese Anime &amp; Manga</option>
+                        <option value="32">Entertainment: Cartoon &amp; Animations</option>		
+                    </select>
+                    </br>
+                    <label for="trivia-difficulty">Select Difficulty:</label>
+                    <select name="trivia-difficulty" class="options">
+                        <option value="any">Any Difficulty</option>
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                    </br>
+                    <button class="btn play flex-center" type="submit">Play!</button>
+                </form>
             </div>
+            <!--Game questions/play-->
+            <div class="column right container">
+                <div id="game" class="justify-center flex-column">
+                    <h2 id="question">What is the answer to this question?</h2>
+                    <div class="choice-container">
+                        <p class="choice">A</p>
+                        <p class="choice-text" data-number="1">Choice 1</p>
+                    </div>
+                    <div class="choice-container">
+                        <p class="choice">B</p>
+                        <p class="choice-text" data-number="2">Choice 2</p>
+                    </div>
+                    <div class="choice-container">
+                        <p class="choice">C</p>
+                        <p class="choice-text" data-number="3">Choice 3</p>
+                    </div>
+                    <div class="choice-container">
+                        <p class="choice">D</p>
+                        <p class="choice-text" data-number="4">Choice 4</p>
+                    </div>
+                    </div>
+                </div>
+        </div>
+        
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
         <script src="./assets/js/trivia.js"></script>
     </body>

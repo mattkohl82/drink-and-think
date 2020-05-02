@@ -170,9 +170,14 @@ $('[name="trivia-difficulty"]').change(function(){
         })
     }
 });
-/*$("#playBtn").on("click", function(e) {
+$("#playBtn").on("click", function(e) {
     e.preventDefault();
     $("#game-container").show();
     startGame();
-});*/
-
+});
+//convert html Characters in array back to text before displaying
+function decodeHtml(html) {
+    var txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    return txt.value;
+}

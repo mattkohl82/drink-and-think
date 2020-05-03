@@ -1,24 +1,28 @@
 $(document).ready(function() {
 
 
-//const APIKey = "1";
-$("#dropdown").change(function(){
-    $("#searchTerm").val("");
-    $("#response-container").empty();
-    var selected = $(this).val(); //get selected option
-    if (selected === "1") {//Ingredient search
-        $("#searchBtn").on("click", function() {
-            const searchTerm = document.querySelector("#searchTerm").value;
-            ingredientSearch(searchTerm);//run ingredient search function
-        });
-    }    
-    if (selected === "2") {//Drink name
-        $("#searchBtn").on("click", function() {
-            const searchTerm = document.querySelector("#searchTerm").value;
-            drinkSearch(searchTerm);//run ingredient search function
-        });
-    }
-});
+// //const APIKey = "1";
+// $("#dropdown").change(function(){
+//     $("#searchTerm").val("");
+//     $("#response-container").empty();
+//     var selected = $(this).val(); //get selected option
+//     if (selected === "1") {//Ingredient search
+//         $("#searchBtn").on("click", function() {
+//             const searchTerm = document.querySelector("#searchTerm").value;
+//             ingredientSearch(searchTerm);//run ingredient search function
+//         });
+//     }    
+//     if (selected === "2") {//Drink name
+//         $("#searchBtn").on("click", function() {
+//             const searchTerm = document.querySelector("#searchTerm").value;
+//             drinkSearch(searchTerm);//run ingredient search function
+//         });
+//     }
+// });
+
+const ingredientInputSearch = document.querySelector("#searchTerm-ingredient");
+const drinkInputSearch = document.querySelector("#searchTerm-drink");
+
 function ingredientSearch(searchTerm) {
     fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i='+ searchTerm)
         
@@ -43,8 +47,8 @@ function ingredientSearch(searchTerm) {
 
 //display recipe name and picture based on ingredient search
 function showDrinks(drinkType, drinkPic) {
-    var searchResult = $('<h3 class="drink-name">').text(drinkType);
-    var img =  $('<img class="drink-pic">').attr("src", drinkPic).attr('id', 'drinkPic').click(function() {
+    var searchResult = $('<h3 class="small-block-grid-3" id="drink-type">').text(drinkType);
+    var img =  $('<img class="small-block-grid-3">').attr("src", drinkPic).attr('id', 'drinkPic').click(function() {
         var searchTerm = drinkType
         drinkSearch(searchTerm);
     });
@@ -76,8 +80,8 @@ function drinkSearch(searchTerm) {
         var measurements = [];
 
         //create object from JSON where ingredients are listed
-        var drinkName = $("<h1>").addClass().text(data.drinks[0].strDrink);
-        var ingredientsTitle = $("<h3>").addClass().text("Ingredients")
+        var drinkName = $("<h1 class='drink-name'>").text(data.drinks[0].strDrink);
+        var ingredientsTitle = $("<h3 class='ingredients-title'>").text("Ingredients")
         var img =  $("<img>").attr("src", data.drinks[0].strDrinkThumb).attr('id', 'drinkPic')
         
         
@@ -105,12 +109,21 @@ function drinkSearch(searchTerm) {
         for (var i = 0; i < ingredients.length; i++) {
             var meas = measurements[i];
             var ing = ingredients[i];
-            let line = $("<li>").text(meas + " " + ing)
+            let line = $("<li class='ingredient-list'>").text(meas + " " + ing)
             $("#response-container").append(line)
         }
-        var instructions = $("<p>").addClass().text(data.drinks[0].strInstructions);
+        var instructions = $("<p class='drink-intructions'>").addClass().text(data.drinks[0].strInstructions);
         $("#response-container").append(instructions)
     });
 }
+
+    document.getElementById("searchBtn-drink").addEventListener("click", function() {
+    drinkSearch(drinkInputSearch.value);
+    })
+    
+    document.getElementById("searchBtn-ingredient").addEventListener("click", function() {
+        ingredientSearch(ingredientInputSearch.value);
+    })
+        
 
 })

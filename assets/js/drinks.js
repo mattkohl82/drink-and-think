@@ -1,35 +1,24 @@
-$(document).ready(function() {
-
-
-// //const APIKey = "1";
-// $("#dropdown").change(function(){
-//     $("#searchTerm").val("");
-//     $("#response-container").empty();
-//     var selected = $(this).val(); //get selected option
-//     if (selected === "1") {//Ingredient search
-//         $("#searchBtn").on("click", function() {
-//             const searchTerm = document.querySelector("#searchTerm").value;
-//             ingredientSearch(searchTerm);//run ingredient search function
-//         });
-//     }    
-//     if (selected === "2") {//Drink name
-//         $("#searchBtn").on("click", function() {
-//             const searchTerm = document.querySelector("#searchTerm").value;
-//             drinkSearch(searchTerm);//run ingredient search function
-//         });
-//     }
-// });
-
-const ingredientInputSearch = document.querySelector("#searchTerm-ingredient");
-const drinkInputSearch = document.querySelector("#searchTerm-drink");
-
+$("#searchBtn1").on("click", function() {
+    $("#searchTerm").val("");
+    //$("#response-container").empty();
+const searchTerm = document.querySelector("#searchTerm1").value;;
+drinkSearch(searchTerm);
+});
+$("#searchBtn2").on("click", function() {
+    $("#searchTerm").val("");
+    $("#response-container").empty();
+const searchTerm = document.querySelector("#searchTerm2").value;;
+ingredientSearch(searchTerm);
+});
 function ingredientSearch(searchTerm) {
+    console.log(searchTerm)
     fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i='+ searchTerm)
         
     .then((response) => {
         return response.json();
     })
     .then((data) => {
+        console.log(data)
         $("#response-container").empty();
         var drinkData = "";
         if (data.drinks.length > 1){
@@ -53,7 +42,7 @@ function showDrinks(drinkType, drinkPic) {
         drinkSearch(searchTerm);
     });
     $("#response-container").append(searchResult);
-    $("#response-container").append(img);
+    $("#response-container").append((img).addClass("imgIng"));
 }
 
 //search by drink name
@@ -65,7 +54,7 @@ function drinkSearch(searchTerm) {
     .then((data) => {
         $("#response-container").empty();//clears last searched recipe
         var drinkData = "";
-             console.log(data)
+            console.log(data)
         //     make them selectable, whichever one they choose should return a number for that drinks' position in the data.drinks array
         //     the number returned should be used to set drinkData, see next line
         //     drinkData = data.drinks[x]   where x relates to whichever drink they clicked
@@ -116,14 +105,3 @@ function drinkSearch(searchTerm) {
         $("#response-container").append(instructions)
     });
 }
-
-    document.getElementById("searchBtn-drink").addEventListener("click", function() {
-    drinkSearch(drinkInputSearch.value);
-    })
-    
-    document.getElementById("searchBtn-ingredient").addEventListener("click", function() {
-        ingredientSearch(ingredientInputSearch.value);
-    })
-        
-
-})

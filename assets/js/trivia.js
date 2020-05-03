@@ -11,6 +11,12 @@ const triviaEl = document.getElementById("game-container");
 const gameEl = document.getElementById("game");
 const choices = Array.from($(".choice-text"));
 const scorePage = document.getElementById("score-container");
+const displayScoreVal = document.getElementById('total-score');
+const submitScore = document.getElementById("submit-btn");
+const initials = document.getElementById('initials');
+const initialsEntered = document.getElementById('initials-entered');
+var highScores = JSON.parse(localStorage.getItem("highScores")) || []; // get the score, or the initial value if empty 
+const MAX_HIGH_SCORES = 5;
 let currentQuestion = {};
 let questionCounter = 0;
 let availableQuestions = [];
@@ -187,6 +193,7 @@ getQuestion = () => {
         //save score to local storage
         localStorage.setItem("mostRecentScore", totalScore);
         //go to the end to have user enter initials
+        displayScoreVal.textContent = totalScore;
         endGame();
     }
     //display question and answer choices
@@ -249,3 +256,26 @@ function endGame () {
     gameEl.classList.add('hide');
     scorePage.classList.remove('hide');
 }
+var mostRecentScore = localStorage.getItem('mostRecentScore');
+
+submitScore.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const score = {
+        score: mostRecentScore,
+        initials: initials.value
+    };
+    if (initials.value === "") {
+        //window.alert("Initials cannot be blank");
+    } else {
+        highScores.push(score);
+
+        highScores.sort((a, b) => b.score - a.score); //sorts highscores in order
+        highScores.splice(5); //keeps top 5 scores in highscore local storage
+        
+        localStorage.setItem("highScores", JSON.stringify(highScores));
+        window.location.assign("highscores.html")
+    }
+});
+
+initialsEntered.reset();

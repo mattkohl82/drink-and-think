@@ -1,8 +1,6 @@
 * {
     margin: 0px;
-
  }
-
 body {
     background-repeat: no-repeat;
     background-size: cover;
@@ -11,13 +9,11 @@ body {
     background-image: url(image.jpg);
     background-color: rgb(13, 203, 236);
 }
-
 .nav-container {
     background-color: rgb(75, 75, 75);
     overflow: hidden;
     width: 100%;
 }
-
 .container p {
     color: white;
     font-weight: bolder;

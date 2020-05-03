@@ -1,50 +1,88 @@
 * {
-    margin: 0px;
- }
+box-sizing: border-box;
+font-family: Arial, Helvetica, sans-serif;
+margin: 0;
+padding: 0;
+}
 body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("./image.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5))
 }
-.nav-container {
-    background-color: rgb(75, 75, 75);
+.navbar {
+    background-color: black;
     overflow: hidden;
-    width: 100%;
+    /* width: 100%; */
+    height: 50px;
 }
-.container p {
+.navbar-right a {
     color: white;
     font-weight: bolder;
     font-family: cursive;
     /* display: inline-block; */
     font-size: 18px;
     float: right;
+    text-align: center;
+    padding: 0px 20px;
+    text-decoration: none;
+    font-size: 30px;
 }
-
-img {
-    border-radius: 75%;
-    height: 10rem;
-}
-
-.drink-intructions {
-
+.navbar-left a {
     color: white;
+    /* display: inline-block; */
+    font-size: 18px;
+    float: left;
+    text-align: center;
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 18px;
+}
+.navbar-left a:hover {
+    background-color: rgb(95, 95, 95);
+}
+/* .container a:hover {
+    background-color: grey;
+    color: black;
+} */
+.search {
+    padding: 50px;
+
+}
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px; /* Should be removed. Only for demonstration */
+}
+.options {
+    display: block;
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
 }
 
-.ingredient-list {
-
-    color: white;
-}
-
-.ingredients-title {
-    color: white;
-}
-
-.drink-name {
-    color: white;
-}
-
-#drink-type {
-    color: white;
-}
+/* BUTTONS */
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    font-size: 20px;
+    padding: 5px 0;
+    width: 10rem;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: rgba(204, 204, 204, 0.5);
+    
+    }
+    
+    .btn:hover {
+    cursor: pointer;
+    background-color:rgb(120, 250, 218);
+    }

@@ -156,7 +156,7 @@ display: none;
 }
 .choice-container:hover {
     cursor: pointer;
-    background-color: rgb(120, 250, 218);
+
 }
 .choice {
     padding: 1.5rem 2.5rem;
@@ -167,7 +167,14 @@ display: none;
     padding: 1.5rem;
     color: #000000;
 }
-/* STATUS*/
+.correct {
+    background-color: green;
+}
+
+.incorrect {
+    background-color: red;
+}
+/* TIME AND SCORE STATUS*/
 #status {
     display: flex;
     justify-content: space-between;

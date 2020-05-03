@@ -2,12 +2,12 @@ var selectedAmount;
 var selectedCategory;
 var selectedDifficulty;
 var timeLeft = 120;
+var totalScore = 0;
 const timerEl = document.getElementById("countdown");
 const timerElzero = document.getElementById("countdown-0");
 const scoreText = document.getElementById("score");
 const question = document.getElementById("question");
 const choices = Array.from($(".choice-text"));
-console.log(choices)
 let currentQuestion = {};
 let questionCounter = 0;
 let availableQuestions = [];
@@ -18,17 +18,14 @@ $("#game-container").hide();
 //get number of questions selected to put in APIUrl
 $("#trivia-questions").on("input", function(){
     selectedAmount = $(this).val();
-    //console.log("number of questions - " + selectedAmount);
 });
 //get value of category selected to put in APIUrl
 $('[name="trivia-category"]').change(function(){
     selectedCategory = ('&category=' + $(this).children("option:selected").val());
-    //console.log("category value - " + selectedCategory);
 });
 //get value of difficulty selected to put in APIUrl
 $('[name="trivia-difficulty"]').change(function(){
     selectedDifficulty = ('&difficulty=' + $(this).children("option:selected").val());
-    //console.log("difficulty - " + selectedDifficulty);
 //});
     //Generate API Key based on options user selects
     //if both random category and random is selected: each question will be a random category/level of difficulty
@@ -63,10 +60,6 @@ $('[name="trivia-difficulty"]').change(function(){
                 //
                 return formattedQuestion;
             });
-            /*$("#playBtn").on("click", function(e) {
-                e.preventDefault();
-                startGame();
-            });*/
         })
     // if only random category is selected
     } else if (selectedCategory === "&category=any") {
@@ -97,10 +90,6 @@ $('[name="trivia-difficulty"]').change(function(){
                 //
                 return formattedQuestion;
             });
-            /*$("#playBtn").on("click", function(e) {
-                    e.preventDefault();
-                    startGame();
-                });*/
     })
     // if only random difficulty is selected
     } else if (selectedDifficulty === "&difficulty=any") {
@@ -132,10 +121,6 @@ $('[name="trivia-difficulty"]').change(function(){
                 //
                 return formattedQuestion;
             });
-            /*$("#playBtn").on("click", function(e) {
-                e.preventDefault();
-                startGame();
-            });*/
         })
     //if all options selected other than random
     } else {
@@ -166,13 +151,10 @@ $('[name="trivia-difficulty"]').change(function(){
                 //
                 return formattedQuestion;
             });
-            /*$("#playBtn").on("click", function(e) {
-                e.preventDefault();
-                startGame();
-            });*/
         })
     }
 });
+// start game when play button is clicked
 $("#playBtn").on("click", function(e) {
     e.preventDefault();
     $("#game-container").show();
@@ -184,7 +166,8 @@ function decodeHtml(html) {
     txt.innerHTML = html;
     return txt.value;
 }
-
+// start game with score reset to 0
+// if timer runs out 
 playGame = () => {
     score = 0;
     availableQuestions = [...questions];
@@ -194,10 +177,70 @@ playGame = () => {
         timerEl.textContent = timeLeft;
 
     if (timeLeft === 0) {
-            displayScore();
             clearInterval(timeInterval);
         }
-    
     }, 1000);
-    //getQuestion();
-    };
+getQuestion();
+};
+getQuestion = () => {
+    if (availableQuestions.length === 0 || questionCounter >= selectedAmount) {
+        //save score to local storage
+        localStorage.setItem("mostRecentScore", score);
+        //go to the end to have user enter initials
+        //displayScore();
+    }
+    //display question and answer choices
+    questionCounter++;
+    const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+    currentQuestion = availableQuestions[questionIndex];
+    var questionInput = currentQuestion.question;
+    var questionOutput = decodeHtml(questionInput);
+    question.innerText = questionOutput;
+    
+    choices.forEach(choice => {
+        const number = choice.dataset["number"];
+        var answerInput = currentQuestion["choice" + number]
+        var answerOutput = decodeHtml(answerInput);
+        choice.innerText = answerOutput;
+        });
+    
+        availableQuestions.splice(questionIndex, 1);
+        acceptingAnswers = true;
+};
+//add 10 points if correct answer selected, remove 5 points and 15 seconds if wrong answer selected, show selected answer as red/green based on corrent/wrong  
+choices.forEach(choice => {
+    choice.addEventListener("click", e => {
+        if (!acceptingAnswers) return;
+        acceptingAnswers = false;
+
+        const selectedChoice = e.target;
+        const selectedAnswer = selectedChoice.dataset["number"];
+
+        const answerStatus =
+            selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
+    
+        if (answerStatus === "correct") {
+            totalScore += 10;
+            //console.log("correct answer selcted, total score "+ totalScore);
+        } else {
+            //console.log("wrong answer selcted, total score "+ totalScore);
+            if(timeLeft >= 15) {
+                timeLeft -= 15;
+            } else {
+                timeLeft = 0;
+            }
+            if(totalScore >= 5) {
+                totalScore -= 5;
+                console.log("total score "+ totalScore);
+            } else {
+                totalScore = 0;
+            }
+        }
+        scoreText.innerText = totalScore;
+        selectedChoice.parentElement.classList.add(answerStatus);       
+        setTimeout(() => {
+            selectedChoice.parentElement.classList.remove(answerStatus);
+            getQuestion();
+        }, 1000);
+    });
+});

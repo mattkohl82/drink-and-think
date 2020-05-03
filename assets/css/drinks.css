@@ -1,0 +1,50 @@
+* {
+    margin: 0px;
+ }
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("./image.jpg");
+}
+.nav-container {
+    background-color: rgb(75, 75, 75);
+    overflow: hidden;
+    width: 100%;
+}
+.container p {
+    color: white;
+    font-weight: bolder;
+    font-family: cursive;
+    /* display: inline-block; */
+    font-size: 18px;
+    float: right;
+}
+
+img {
+    border-radius: 75%;
+    height: 10rem;
+}
+
+.drink-intructions {
+
+    color: white;
+}
+
+.ingredient-list {
+
+    color: white;
+}
+
+.ingredients-title {
+    color: white;
+}
+
+.drink-name {
+    color: white;
+}
+
+#drink-type {
+    color: white;
+}

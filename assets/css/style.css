@@ -1,39 +1,40 @@
 body {
-    background-image: url(backgroundfood.jpg);
+    /* background-image: url(drinks.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(drinks.jpg);
 }
-
-.top-bar, .top-bar-left ul {
+/* .top-bar, .top-bar-left ul {
     background: orange;
-    flex-wrap: nowrap;
-    justify-content: stretch;
-}
-
+} */
 .content {
-    background-color: lightgoldenrodyellow;
-    opacity: 0.5;
+    /* background-color: black; */
+    opacity: 0.85;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-  
+.content header {
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: cursive;
+    margin-top: 30px;
+}
 .content p {
     margin: 5%;
-    color: darkorange;
+    color: white;
     text-align: center;
     font-size: 18px;
 }
-
-.content:hover {
-    opacity: 1;
-}
-
-
-.button-group-option {
+/* .content:hover {
+    opacity: .8;
+} */
+/* .button-group-option {
     position: relative;
     -webkit-align-items: center;
         -ms-flex-align: center;
@@ -50,7 +51,6 @@ body {
         -ms-flex-align: stretch;
             align-items: stretch;
 }
-  
 .button-group-option::before, .button-group-option::after {
     display: table;
     content: ' ';
@@ -61,11 +61,9 @@ body {
         -ms-flex-order: 1;
             order: 1;
 }
-  
 .button-group-option::after {
     clear: both;
 }
-  
 .button-group-option .button {
     margin: 0;
     margin-right: 1px;
@@ -75,21 +73,17 @@ body {
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
 }
-  
 .button-group-option .button:last-child {
     margin-right: 0;
 }
-  
 .button-group-option .button {
     -webkit-flex: 1 1 0px;
         -ms-flex: 1 1 0px;
             flex: 1 1 0px;
 }
-  
 .button-group-option .button {
     font-size: 1.125rem;
 }
-  
 .button-group-option:before {
     content: attr(data-grouptype);
     z-index: 1;
@@ -98,7 +92,7 @@ body {
     font-size: 1rem;
     padding: 0.25em;
     border-radius: 5000px;
-    background: #fefefe;
+    background: #FEFEFE;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -106,7 +100,57 @@ body {
         -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
 }
-  
 .button-group-option .button + .button {
     margin-left: 0.35rem;
+} */
+.button-rounded-hover {
+    right: 30%;
+    left: 30%;
+    border: 0;
+    border-radius: 5000px;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    transition: all 0.35s ease;
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+}
+.button-rounded-hover:before {
+    opacity: 0;
+    content: "";
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    border-radius: inherit;
+    background-color: black;
+    transition: all 0.3s;
+    -webkit-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+            transform: translateX(-100%);
+}
+.button-rounded-hover:after {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    border: 2px solid white;
+    content: '';
+    border-radius: inherit;
+}
+.button-rounded-hover:hover,
+.button-rounded-hover:focus {
+    background-color: rgb(75, 75, 75);
+}
+.button-rounded-hover:hover:before,
+.button-rounded-hover:focus:before {
+    -webkit-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+            transform: translateX(0%);
+    opacity: 0.25;
 }

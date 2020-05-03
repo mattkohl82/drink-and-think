@@ -84,30 +84,45 @@
                     <div id="status">
                         <div id="status-item">
                             <p class="status-type">Time left</p>
-                            <h1 class="status-text" id="countdown">120</h1><h1 id="countdown-0" class="hidden">0</h1>
+                            <h1 class="status-text" id="countdown">120</h1><h1 id="countdown-0" class="hide">0</h1>
                         </div>
                         <div id="status-item">
                             <p class="status-type">Score</p>
                             <h1 class="status-text" id="score">0</h1>
                         </div>
                     </div>
-                    <h2 id="question">What is the answer to this question?</h2>
-                    <div class="choice-container">
-                        <p class="choice">A</p>
-                        <p class="choice-text" data-number="1">Choice 1</p>
+                    <div id="question-container">
+                        <h2 id="question">What is the answer to this question?</h2>
+                        <div class="choice-container">
+                            <p class="choice">A</p>
+                            <p class="choice-text" data-number="1">Choice 1</p>
+                        </div>
+                        <div class="choice-container" >
+                            <p class="choice">B</p>
+                            <p class="choice-text" data-number="2">Choice 2</p>
+                        </div>
+                        <div class="choice-container">
+                            <p class="choice">C</p>
+                            <p class="choice-text" data-number="3">Choice 3</p>
+                        </div>
+                        <div class="choice-container">
+                            <p class="choice">D</p>
+                            <p class="choice-text" data-number="4">Choice 4</p>
+                        </div>
+                        </div>
                     </div>
-                    <div class="choice-container">
-                        <p class="choice">B</p>
-                        <p class="choice-text" data-number="2">Choice 2</p>
-                    </div>
-                    <div class="choice-container">
-                        <p class="choice">C</p>
-                        <p class="choice-text" data-number="3">Choice 3</p>
-                    </div>
-                    <div class="choice-container">
-                        <p class="choice">D</p>
-                        <p class="choice-text" data-number="4">Choice 4</p>
-                    </div>
+                    <div id="score-container" class="hide score-container">
+                        <h1>Game Over!</h1>
+                        <p class="final">Your final score is <span id="total-score">Total Score</span>.</p>
+                        <div class="score-entry">
+                            <p class="score-label">Enter initials: 
+                            <form id="initials-entered">
+                                <input id="initials" type="text" placeholder="Your Initials">
+                            </form>
+                        </br>
+                            <button id="submit-btn" class="submit btn flex-center" type="submit">Submit</button>
+                            </p>
+                        </div>
                     </div>
                 </div>
         </div>

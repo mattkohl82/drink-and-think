@@ -3,11 +3,13 @@ var selectedCategory;
 var selectedDifficulty;
 var timeLeft = 120;
 var totalScore = 0;
-const timerEl = document.getElementById("countdown");
-const timerElzero = document.getElementById("countdown-0");
+//const timerEl = document.getElementById("countdown");
+//const timerElzero = document.getElementById("countdown-0");
 const scoreText = document.getElementById("score");
 const question = document.getElementById("question");
+const gameEl = document.getElementById("game");
 const choices = Array.from($(".choice-text"));
+const scorePage = document.getElementById("score-container");
 let currentQuestion = {};
 let questionCounter = 0;
 let availableQuestions = [];
@@ -187,7 +189,7 @@ getQuestion = () => {
         //save score to local storage
         localStorage.setItem("mostRecentScore", score);
         //go to the end to have user enter initials
-        //displayScore();
+        endGame();
     }
     //display question and answer choices
     questionCounter++;
@@ -244,3 +246,10 @@ choices.forEach(choice => {
         }, 1000);
     });
 });
+
+function endGame () {
+    gameEl.classList.add('hide');
+    //timerEl.classList.add('hide');
+    //timerElzero.classList.remove('hide');
+    scorePage.classList.remove('hide');
+}

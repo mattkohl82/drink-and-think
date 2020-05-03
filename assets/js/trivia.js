@@ -37,10 +37,8 @@ $('[name="trivia-difficulty"]').change(function(){
             return response.json()
         })
         .then((data) => {
-            
-            console.log(data.results);
+            //console.log(data.results);
             //convert questions from array to new form
-            //var results = JSON.parse(data.results.replace(/&quot;/g,'"'));
             questions = data.results.map(currQuestion => {
                 //get each individual question change to format needed to display in game
                 const formattedQuestion = {
@@ -70,7 +68,7 @@ $('[name="trivia-difficulty"]').change(function(){
             return response.json();
         })
         .then((data) => {
-            console.log(data.results);
+            //console.log(data.results);
             questions = data.results.map(currQuestion => {
                 //get each individual question change to format needed to display in game
                 const formattedQuestion = {
@@ -100,8 +98,7 @@ $('[name="trivia-difficulty"]').change(function(){
             return response.json();
         })
         .then((data) => {
-            
-            console.log(data.results);
+            //console.log(data.results);
             questions = data.results.map(currQuestion => {
                 //get each individual question change to format needed to display in game
                 const formattedQuestion = {
@@ -131,7 +128,7 @@ $('[name="trivia-difficulty"]').change(function(){
             return response.json();
         })
         .then((data) => {
-            console.log(data.results);
+            //console.log(data.results);
             questions = data.results.map(currQuestion => {
                 //get each individual question change to format needed to display in game
                 const formattedQuestion = {
@@ -150,7 +147,6 @@ $('[name="trivia-difficulty"]').change(function(){
                 answerChoices.forEach((choice, index) => {
                     formattedQuestion["choice" + (index + 1)] = choice;
                 });
-                //
                 return formattedQuestion;
             });
         })
@@ -171,7 +167,7 @@ function decodeHtml(html) {
 // start game with score reset to 0
 // if timer runs out 
 playGame = () => {
-    score = 0;
+    totalScore = 0;
     availableQuestions = [...questions];
     
     var timeInterval = setInterval(function () {
@@ -187,7 +183,7 @@ getQuestion();
 getQuestion = () => {
     if (availableQuestions.length === 0 || questionCounter >= selectedAmount) {
         //save score to local storage
-        localStorage.setItem("mostRecentScore", score);
+        localStorage.setItem("mostRecentScore", totalScore);
         //go to the end to have user enter initials
         endGame();
     }

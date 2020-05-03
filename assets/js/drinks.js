@@ -1,29 +1,25 @@
+$(document).ready(function() {
+
+
 //const APIKey = "1";
-//video is not showing if you switch to drink search after using the ingredient serach
-var fetchChoice = "";
 $("#dropdown").change(function(){
     $("#searchTerm").val("");
     $("#response-container").empty();
-    //$("#video-container").hide();
-    $("iframe").attr("src","about:blank").attr("style","display:none");
     var selected = $(this).val(); //get selected option
     if (selected === "1") {//Ingredient search
         $("#searchBtn").on("click", function() {
             const searchTerm = document.querySelector("#searchTerm").value;
             ingredientSearch(searchTerm);//run ingredient search function
-            //console.log(searchTerm)
         });
     }    
     if (selected === "2") {//Drink name
         $("#searchBtn").on("click", function() {
             const searchTerm = document.querySelector("#searchTerm").value;
             drinkSearch(searchTerm);//run ingredient search function
-            //console.log(searchTerm)
         });
     }
 });
 function ingredientSearch(searchTerm) {
-    //hide video
     fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i='+ searchTerm)
         
     .then((response) => {
@@ -31,8 +27,6 @@ function ingredientSearch(searchTerm) {
     })
     .then((data) => {
         $("#response-container").empty();
-        //$("#video-container").hide();
-        $("iframe").attr("src","about:blank").attr("style","display:none");
         var drinkData = "";
         if (data.drinks.length > 1){
             drinkData = data.drinks[i]
@@ -46,10 +40,11 @@ function ingredientSearch(searchTerm) {
         }
     })
 }
+
 //display recipe name and picture based on ingredient search
 function showDrinks(drinkType, drinkPic) {
-    var searchResult = $("<li>").addClass().text(drinkType);
-    var img =  $("<img>").attr("src", drinkPic).attr('id', 'drinkPic').click(function() {
+    var searchResult = $('<h3 class="drink-name">').text(drinkType);
+    var img =  $('<img class="drink-pic">').attr("src", drinkPic).attr('id', 'drinkPic').click(function() {
         var searchTerm = drinkType
         drinkSearch(searchTerm);
     });
@@ -65,22 +60,21 @@ function drinkSearch(searchTerm) {
     })
     .then((data) => {
         $("#response-container").empty();//clears last searched recipe
-        //$("iframe").attr("src","about:blank").attr("style","display:none");
         var drinkData = "";
-            /* 
-            //make them selectable, whichever one they choose should return a number for that drinks' position in the data.drinks array
-            //the number returned should be used to set drinkData, see next line
-            //drinkData = data.drinks[x]   where x relates to whichever drink they clicked
-        } else if (data.drinks.length == 1) {
-            //drinkData = data.drinks[0]
-        } else {
-            //have the user retry because their search did not return a result
-        }*/
-        console.log(data)
-        //console.log(data.drinks[0])
+             console.log(data)
+        //     make them selectable, whichever one they choose should return a number for that drinks' position in the data.drinks array
+        //     the number returned should be used to set drinkData, see next line
+        //     drinkData = data.drinks[x]   where x relates to whichever drink they clicked
+        // } else if (data.drinks.length == 1) {
+        //     drinkData = data.drinks[0]
+        // } else {
+        //     have the user retry because their search did not return a result
+        // }
+
         drinkData = data.drinks[0]//TO DO:define this var in the if/else if/else appropriately
         var ingredients = [];
         var measurements = [];
+
         //create object from JSON where ingredients are listed
         var drinkName = $("<h1>").addClass().text(data.drinks[0].strDrink);
         var ingredientsTitle = $("<h3>").addClass().text("Ingredients")
@@ -118,3 +112,5 @@ function drinkSearch(searchTerm) {
         $("#response-container").append(instructions)
     });
 }
+
+})

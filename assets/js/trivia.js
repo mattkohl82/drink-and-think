@@ -3,8 +3,8 @@ var selectedCategory;
 var selectedDifficulty;
 var timeLeft = 120;
 var totalScore = 0;
-//const timerEl = document.getElementById("countdown");
-//const timerElzero = document.getElementById("countdown-0");
+const timerEl = document.getElementById("countdown");
+const timerElzero = document.getElementById("countdown-0");
 const scoreText = document.getElementById("score");
 const question = document.getElementById("question");
 const gameEl = document.getElementById("game");
@@ -249,7 +249,5 @@ choices.forEach(choice => {
 
 function endGame () {
     gameEl.classList.add('hide');
-    //timerEl.classList.add('hide');
-    //timerElzero.classList.remove('hide');
     scorePage.classList.remove('hide');
 }

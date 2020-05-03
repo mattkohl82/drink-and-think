@@ -4,7 +4,7 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(drinks.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./drinks.jpg");
 }
 /* .top-bar, .top-bar-left ul {
     background: orange;

@@ -64,7 +64,13 @@ body {
     background-color: #ffffff;
     color: rgb(0, 0, 0);
 }
-
+.response {
+    margin: 25px; 
+}
+.imgIng {
+    border-radius: 25%;
+    height: 15rem;
+}
 /* BUTTONS */
 .btn {
     display: flex;
@@ -86,3 +92,4 @@ body {
     cursor: pointer;
     background-color:rgb(120, 250, 218);
     }
+/* GRID*/

@@ -6,8 +6,20 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    background-image: url(image.jpg);
-    background-color: rgb(13, 203, 236);
+    /* background-color: linear-gradient(#0f0c29 #302b63 #24243e); */
+
+    background-image: linear-gradient(#159957, #155799)
+    /* background-image: url(image.jpg); */
+    /* background-color: rgb(13, 203, 236); */
+  /* height: 200px;
+  width: 200px; */
+  /* background-color: red;
+  background-image:
+    radial-gradient(
+      circle at top right,
+      yellow,
+      #f06d06 50% */
+    /* ); */
 }
 .nav-container {
     background-color: rgb(75, 75, 75);
@@ -15,10 +27,13 @@ body {
     width: 100%;
 }
 .container p {
-    color: white;
+    color: blue;
     font-weight: bolder;
     font-family: cursive;
+    text-shadow: 2px 2px 5px red;
+
     /* display: inline-block; */
+    
     font-size: 18px;
     float: right;
 }

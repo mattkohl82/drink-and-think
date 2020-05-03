@@ -255,27 +255,27 @@ choices.forEach(choice => {
 function endGame () {
     gameEl.classList.add('hide');
     scorePage.classList.remove('hide');
-}
+
 var mostRecentScore = localStorage.getItem('mostRecentScore');
 
-submitScore.addEventListener('click', function(e) {
-    e.preventDefault();
-    
-    const score = {
-        score: mostRecentScore,
-        initials: initials.value
-    };
-    if (initials.value === "") {
-        //window.alert("Initials cannot be blank");
-    } else {
-        highScores.push(score);
-
-        highScores.sort((a, b) => b.score - a.score); //sorts highscores in order
-        highScores.splice(5); //keeps top 5 scores in highscore local storage
+    submitScore.addEventListener('click', function(e) {
+        e.preventDefault();
         
-        localStorage.setItem("highScores", JSON.stringify(highScores));
-        window.location.assign("highscores.html")
-    }
-});
+        const score = {
+            score: mostRecentScore,
+            initials: initials.value
+        };
+        if (initials.value === "") {
+            //window.alert("Initials cannot be blank");
+        } else {
+            highScores.push(score);
 
-initialsEntered.reset();
+            highScores.sort((a, b) => b.score - a.score); //sorts highscores in order
+            highScores.splice(5); //keeps top 5 scores in highscore local storage
+            
+            localStorage.setItem("highScores", JSON.stringify(highScores));
+            window.location.assign("highscores.html")
+        }
+    });
+}
+

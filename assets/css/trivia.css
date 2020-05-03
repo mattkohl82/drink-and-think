@@ -238,6 +238,27 @@ cursor: not-allowed;
     display: flex;
     margin: 0 auto;
 }
+/* Style HighScores page*/
+
+ol {
+    list-style-position: inside;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.result {
+    position: absolute;
+    bottom:0;
+    width: 50vw;
+}
+.result h2 {
+    font-weight: 100;
+    color: rgb(189, 189, 189);
+    border-top: solid;
+    padding: 1rem;
+}
+
 .hide {
     display: none;
     }

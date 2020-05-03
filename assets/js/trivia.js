@@ -7,6 +7,7 @@ const timerEl = document.getElementById("countdown");
 const timerElzero = document.getElementById("countdown-0");
 const scoreText = document.getElementById("score");
 const question = document.getElementById("question");
+const triviaEl = document.getElementById("game-container");
 const gameEl = document.getElementById("game");
 const choices = Array.from($(".choice-text"));
 const scorePage = document.getElementById("score-container");
@@ -15,7 +16,7 @@ let questionCounter = 0;
 let availableQuestions = [];
 
 let questions = [];
-$("#game-container").hide();
+//$("#game-container").hide();
 //Build Game Parameters
 //get number of questions selected to put in APIUrl
 $("#trivia-questions").on("input", function(){
@@ -155,7 +156,8 @@ $('[name="trivia-difficulty"]').change(function(){
 // start game when play button is clicked
 $("#playBtn").on("click", function(e) {
     e.preventDefault();
-    $("#game-container").show();
+    triviaEl.classList.remove('hide');
+    //$("#game-container").show();
     playGame();
 });
 //convert html Characters in array back to text before displaying
@@ -229,7 +231,7 @@ choices.forEach(choice => {
             }
             if(totalScore >= 5) {
                 totalScore -= 5;
-                console.log("total score "+ totalScore);
+                //console.log("total score "+ totalScore);
             } else {
                 totalScore = 0;
             }

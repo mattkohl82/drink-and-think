@@ -42,7 +42,7 @@ function showDrinks(drinkType, drinkPic) {
         drinkSearch(searchTerm);
     });
     $("#response-container").append(searchResult);
-    $("#response-container").append((img).addClass("imgIng"));
+    $("#response-container").append(img);
 }
 
 //search by drink name

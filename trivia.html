@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>Drink and Think - Trivia</title>
-        <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Drink and Think - Trivia</title>
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
         <link rel="stylesheet" href="./assets/css/foundation.css" />-->
-        <link rel="stylesheet" href="./assets/css/trivia.css">
-    </head>
-    <header>
-        <!--correct navbar will go here-->
-        <h1 class="menu-text">
-            <a href="./main.html">Drink and Think</a>
-        </h1>
-        <nav class="top-bar">
-            <ul class="menu">
-                <li>
-                    <a href="./drinkspage.html">Drinks</a>
-                </li>
-                <!-- wont display on own page
+    <link rel="stylesheet" href="./assets/css/trivia.css">
+</head>
+<header>
+    <!--correct navbar will go here-->
+    <h1 class="menu-text">
+        <a href="./main.html">Drink and Think</a>
+    </h1>
+    <nav class="top-bar">
+        <ul class="menu">
+            <li>
+                <a href="./drinkspage.html">Drinks</a>
+            </li>
+            <!-- wont display on own page
                 <li>
                     <a href="./trivia.html">Trivia</a>
                 </li>
@@ -95,43 +96,49 @@
                             <h1 class="status-text" id="score">0</h1>
                         </div>
                     </div>
-                    <div id="question-container">
-                        <h2 id="question">What is the answer to this question?</h2>
-                        <div class="choice-container">
-                            <p class="choice">A</p>
-                            <p class="choice-text" data-number="1">Choice 1</p>
-                        </div>
-                        <div class="choice-container" >
-                            <p class="choice">B</p>
-                            <p class="choice-text" data-number="2">Choice 2</p>
-                        </div>
-                        <div class="choice-container">
-                            <p class="choice">C</p>
-                            <p class="choice-text" data-number="3">Choice 3</p>
-                        </div>
-                        <div class="choice-container">
-                            <p class="choice">D</p>
-                            <p class="choice-text" data-number="4">Choice 4</p>
-                        </div>
-                        </div>
-                    </div>
-                    <div id="score-container" class="hide score-container">
-                        <h1>Game Over!</h1>
-                        <p class="final">Your final score is <span id="total-score">Total Score</span>.</p>
-                        <div class="score-entry">
-                            <p class="score-label">Enter initials: 
-                            <form id="initials-entered">
-                                <input id="initials" type="text" placeholder="Your Initials">
-                            </form>
-                        </br>
-                            <button id="submit-btn" class="submit btn flex-center" type="submit">Submit</button>
-                            </p>
-                        </div>
+                    <div id="status-item">
+                        <p class="status-type">Score</p>
+                        <h1 class="status-text" id="score">0</h1>
                     </div>
                 </div>
+                <div id="question-container">
+                    <h2 id="question">What is the answer to this question?</h2>
+                    <div class="choice-container">
+                        <p class="choice">A</p>
+                        <p class="choice-text" data-number="1">Choice 1</p>
+                    </div>
+                    <div class="choice-container">
+                        <p class="choice">B</p>
+                        <p class="choice-text" data-number="2">Choice 2</p>
+                    </div>
+                    <div class="choice-container">
+                        <p class="choice">C</p>
+                        <p class="choice-text" data-number="3">Choice 3</p>
+                    </div>
+                    <div class="choice-container">
+                        <p class="choice">D</p>
+                        <p class="choice-text" data-number="4">Choice 4</p>
+                    </div>
+                </div>
+            </div>
+            <div id="score-container" class="hide score-container">
+                <h1>Game Over!</h1>
+                <p class="final">Your final score is <span id="total-score">Total Score</span>.</p>
+                <div class="score-entry">
+                    <p class="score-label">Enter initials:
+                        <form id="initials-entered">
+                            <input id="initials" type="text" placeholder="Your Initials">
+                        </form>
+                        </br>
+                        <button id="submit-btn" class="submit btn flex-center" type="submit">Submit</button>
+                    </p>
+                </div>
+            </div>
         </div>
-        
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-        <script src="./assets/js/trivia.js"></script>
-    </body>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="./assets/js/trivia.js"></script>
+</body>
+
 </html>

@@ -61,11 +61,16 @@ function showDrinks(drinkType, drinkPic) {
         //$("#response-drinks").append(searchResult, img);
         
     });
+<<<<<<< HEAD
     contResults.append(searchResult, img);
     $("#response-container").append(contResults);
     //$("#response-container").append(div);
     //$(".response-drinks").append(searchResult);
     //$(".response-drinks").append((img));
+=======
+    $("#response-container").append(searchResult);
+    $("#response-container").append(img).addClass("imgIng");
+>>>>>>> ab3472e6f1549295e6d8c575dabebc2d83fbbc07
 }
 
 

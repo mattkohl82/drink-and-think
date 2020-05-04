@@ -44,7 +44,7 @@ $('[name="trivia-difficulty"]').change(function(){
             return response.json()
         })
         .then((data) => {
-            //console.log(data.results);
+            console.log(data.results);
             //convert questions from array to new form
             questions = data.results.map(currQuestion => {
                 //get each individual question change to format needed to display in game

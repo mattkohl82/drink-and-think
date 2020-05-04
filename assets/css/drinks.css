@@ -10,7 +10,8 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5))
+    /*background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5));*/
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("./drinks.jpg");
 }
 
 .navbar {
@@ -77,10 +78,7 @@ body {
     margin: 25px; 
 }
 
-.imgIng {
-    border-radius: 25%;
-    height: 15rem;
-}
+
 
 /* BUTTONS */
 .btn {
@@ -104,3 +102,33 @@ body {
     background-color:rgb(49, 203, 214)
 }
 /* GRID*/
+
+#response-container {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    align-items: center;
+
+}
+
+.drink-card {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#drink-type {
+    font-size: 25px;
+    text-decoration: dashed;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px #000000;
+    margin-bottom: 1rem;
+}
+
+.imgIng {
+    border-radius: 35%;
+    height: 15rem;
+
+    
+}
+

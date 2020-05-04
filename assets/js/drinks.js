@@ -34,16 +34,42 @@ function ingredientSearch(searchTerm) {
     })
 }
 
+// //display recipe name and picture based on ingredient search
+// function showDrinks(drinkType, drinkPic) {
+//     var div = $('<div class="response-drinks">');
+//     var searchResult = $('<h3 class="" id="drink-type">').text(drinkType);
+//     var img =  $('<img class="imgIng">').attr("src", drinkPic).attr('id', 'drinkPic').click(function() {
+//         var searchTerm = drinkType
+//         drinkSearch(searchTerm);
+//         $("#response-container").append(div);
+//         $(".response-drinks").append(searchResult, img);
+//     });
+//     $("#response-container").append(div);
+//     $(".response-drinks").append(searchResult);
+//     $(".response-drinks").append((img));
+// }
+
 //display recipe name and picture based on ingredient search
 function showDrinks(drinkType, drinkPic) {
-    var searchResult = $('<h3 class="small-block-grid-3" id="drink-type">').text(drinkType);
-    var img =  $('<img class="small-block-grid-3">').attr("src", drinkPic).attr('id', 'drinkPic').click(function() {
+    var contResults = $("<div>").addClass("drink-card");
+    //var div = $('<div class="response-drinks">');
+    var searchResult = $('<p class="" id="drink-type">').text(drinkType);
+    var img =  $('<img class="imgIng">').attr("src", drinkPic).attr('id', 'drinkPic').click(function() {
         var searchTerm = drinkType
         drinkSearch(searchTerm);
+        //$("#response-container").append(div);
+        //$("#response-drinks").append(searchResult, img);
+        
     });
-    $("#response-container").append(searchResult);
-    $("#response-container").append((img).addClass("imgIng"));
+    contResults.append(searchResult, img);
+    $("#response-container").append(contResults);
+    //$("#response-container").append(div);
+    //$(".response-drinks").append(searchResult);
+    //$(".response-drinks").append((img));
 }
+
+
+
 
 //search by drink name
 function drinkSearch(searchTerm) {

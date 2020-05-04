@@ -12,7 +12,7 @@ Our Web-API based application allows the user to search for items by name, ingri
 The search results will provide a varaiety of drink recipes. Trivia allows the user to keep score of the game and saves high scroes. 
 
 ```
-Jogic for Drink and Think:
+Logic for Drink and Think:
 
 Technology:
 1.HTML

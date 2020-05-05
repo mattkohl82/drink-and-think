@@ -1,6 +1,7 @@
 var selectedAmount;
 var selectedCategory;
 var selectedDifficulty;
+var mainPage = 'start';
 var timeLeft = 120;
 var totalScore = 0;
 const timerEl = document.getElementById("countdown");
@@ -11,9 +12,9 @@ const triviaEl = document.getElementById("game-container");
 const gameEl = document.getElementById("game");
 const choices = Array.from($(".choice-text"));
 const scorePage = document.getElementById("score-container");
-const displayScoreVal = document.getElementById('total-score');
+const displayScoreVal = document.getElementById("total-score");
 const submitScore = document.getElementById("submit-btn");
-const initials = document.getElementById('initials');
+const initials = document.getElementById("initials");
 const initialsEntered = document.getElementById('initials-entered');
 var highScores = JSON.parse(localStorage.getItem("highScores")) || []; // get the score, or the initial value if empty 
 const MAX_HIGH_SCORES = 5;
@@ -162,6 +163,7 @@ $('[name="trivia-difficulty"]').change(function(){
 // start game when play button is clicked
 $("#playBtn").on("click", function(e) {
     e.preventDefault();
+    document.getElementById(mainPage).style.display = "none";
     triviaEl.classList.remove('hide');
     //$("#game-container").show();
     playGame();

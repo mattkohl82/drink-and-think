@@ -61,7 +61,7 @@ function showDrinks(drinkType, drinkPic) {
         //$("#response-drinks").append(searchResult, img);
         
     });
-    contResults.append(searchResult, img);
+    contResults.append(img, searchResult);
     $("#response-container").append(contResults);
     //$("#response-container").append(div);
     //$(".response-drinks").append(searchResult);

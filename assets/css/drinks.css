@@ -1,6 +1,7 @@
 * {
 box-sizing: border-box;
 font-family: Arial, Helvetica, sans-serif;
+color: white;
 margin: 0;
 padding: 0;
 }
@@ -45,7 +46,11 @@ body {
 }
 
 .navbar-left a:hover {
-    background-color: rgb(95, 95, 95);
+    background-color: rgb(77, 75, 75);
+}
+
+.navbar-right a:hover {
+    background: linear-gradient(70deg, rgb(92, 24, 24), rgb(32, 31, 31));
 }
 
 /* .container a:hover {
@@ -107,7 +112,7 @@ body {
 .btn:hover {
     cursor: pointer;
     /* background-color:rgb(120, 250, 218); */
-    background-color:rgb(49, 203, 214)
+    background-color:rgb(9, 62, 66)
 }
 /* GRID*/
 

@@ -23,3 +23,6 @@ Technology:
 ```
 
 ![index](assets\css\main.png)
+
+
+![index](assets\css\secondarypage.png)

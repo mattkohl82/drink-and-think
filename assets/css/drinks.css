@@ -39,10 +39,6 @@ body {
 .navbar-left a:hover {
     background-color: rgb(95, 95, 95);
 }
-/* .container a:hover {
-    background-color: grey;
-    color: black;
-} */
 .content1 {
     float: left;
     padding-left: 250px;
@@ -52,4 +48,9 @@ body {
     float: right;
     padding-right: 250px;
     padding-top: 50px;
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
 }

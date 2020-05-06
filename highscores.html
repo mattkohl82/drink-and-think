@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Drink and Think - High Scores</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./assets/css/trivia.css">
+</head>
+
+<header>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper black">
+              <a href="./index.html" class="brand-logo right">Drink and Think</a>
+              <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="./trivia.html">Trivia</a></li>
+                <li><a href="./drinkspage.html">Drinks</a></li>
+              </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- <h1 class="menu-text">
+        <a href="./main.html">Drink and Think</a>
+    </h1>
+    <nav class="top-bar">
+        <ul class="menu">
+            <li>
+                <a href="./drinkspage.html">Drinks</a>
+            </li>
+            <li>
+                <a href="./trivia.html">Trivia</a>
+            </li>
+        </ul>
+    </nav> -->
+</header>
+
+<body>
+    <div class="score-container">
+        <div id="highscores">
+            <h1 id="finalScore">High Scores</h1>
+            <ol id="highScoresList"></ol>
+            <div class="navigation">
+                <button id="home" class="btn grey" onclick="window.location.href ='./trivia.html';">Play Again!</button>
+                <button onclick="clearAll()" class="btn grey">Clear Scores!</button>
+                <button id="home" class="btn grey" onclick="window.location.href ='./drinkspage.html';">I'm
+                    Thirsty!</button>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./assets/js/highscores.js"></script>
+
+</body>
+
+</html>

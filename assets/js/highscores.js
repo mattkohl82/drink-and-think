@@ -12,3 +12,8 @@ function clearAll() {
     localStorage.clear();
     document.getElementById('highScoresList').style.display = "none";
 }
+
+// mobile nav
+$(document).ready(function(){
+    $('.sidenav').sidenav();
+});

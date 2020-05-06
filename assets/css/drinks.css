@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: "Times New Roman", Times, serif;
+    font-family: "Times New Roman", Times, cursive;
     margin: 0;
     padding: 0;
     }
@@ -13,7 +13,8 @@ body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("./drinks.jpg");
 }
 .brand-logo {
-    font-family: cursive;
+    font-family: "Times New Roman", Times, cursive;
+
 }
 .search1 {
     margin-right: 10px;
@@ -72,6 +73,9 @@ body {
     /* background-color:rgb(120, 250, 218); */
     background-color:  rgb(75, 75, 75);
 }
+
+
+
 /* GRID*/
 .response {
     display: grid;

@@ -62,6 +62,7 @@ function drinkSearch(searchTerm) {
     })
     .then((data) => {
         $("#response-container").empty();//clears last searched recipe
+        $(".search").empty();
         var drinkData = "";
             console.log(data)
         //     make them selectable, whichever one they choose should return a number for that drinks' position in the data.drinks array
@@ -82,6 +83,8 @@ function drinkSearch(searchTerm) {
         var ingredientsTitle = $("<h3 class='ingredients-title'>").text("Ingredients")
         var img =  $("<img>").attr("src", data.drinks[0].strDrinkThumb).attr('id', 'drinkPic')
         var driectionsTitle = $("<h3 class='directions-title'>").text("Directions")
+        var triviaBtn = $('<button class="btn grey">').text("Trivia Time!")
+        
         
         
         $("#response-container-2").append(drinkName);
@@ -115,6 +118,9 @@ function drinkSearch(searchTerm) {
         $("#response-container-2").append(driectionsTitle);
         var instructions = $("<p class='drink-intructions'>").addClass().text(data.drinks[0].strInstructions);
         $('p').html($('p').text().replace('.', '.<br>'));
-        $("#response-container-2").append(instructions)
+        $("#response-container-2").append(instructions);
+        $(".search").append(triviaBtn).on('click', function(){
+            window.location = "./trivia.html";    
+       });
     });
 }

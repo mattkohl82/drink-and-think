@@ -179,7 +179,19 @@ text-align: center;
 }
 /* BUTTONS */
 .btn {
-width: 12rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    font-size: .7rem;
+    width: 10rem;
+    border: 1px solid #ffffff;
+    border-radius: 5000px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: rgba(204, 204, 204, 0.5);
+/* width: 12rem;
 border: 1px solid #ffffff;
 border-radius: 10px;
 text-decoration: none;
@@ -189,9 +201,8 @@ background-color: rgba(204, 204, 204, 0.5);
 justify-content: center;
 align-items: center;
 font-size: 1rem;
-/* width: 10rem; */
 letter-spacing: 2px;
-padding: 0 0;
+padding: 0 0; */
 }
 
 .btn:hover {

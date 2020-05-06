@@ -31,9 +31,10 @@ body {
     text-align: center;
     font-size: 18px;
 }
+
 /* .content:hover {
     opacity: .8;
-} */
+}  */
 /* .button-group-option {
     position: relative;
     -webkit-align-items: center;
@@ -103,7 +104,33 @@ body {
 .button-group-option .button + .button {
     margin-left: 0.35rem;
 } */
-.button-rounded-hover {
+
+/* BUTTONS */
+.btn {
+    display: inline-block;
+    align-items: flex-end;
+    flex-wrap: nowrap;
+    
+    /* justify-content: center; */
+    margin: 20px auto;
+    font-size: 1rem;
+    width: 10rem;
+    border: 1px solid #ffffff;
+    border-radius: 5000px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: rgba(204, 204, 204, 0.5);
+}
+.btn:hover {
+    cursor: pointer;
+    /* background-color:rgb(120, 250, 218); */
+    background-color:  rgb(75, 75, 75);
+}
+
+
+
+/* .button-rounded-hover {
     right: 30%;
     left: 30%;
     border: 0;
@@ -153,4 +180,22 @@ body {
         -ms-transform: translateX(0%);
             transform: translateX(0%);
     opacity: 0.25;
+} */
+
+/* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+ @media screen and (max-width: 575px) {
+    .response { 
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .search1 {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    .search2 {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    .drink-type {
+        font-size: 8px;
+    }
 }

@@ -1,45 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drink Recipe</title>
     <link href="https://fonts.googleapis.com/css2?family=Molle:ital@1&family=Mr+Bedfort&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/css/drinks.css" />
 </head>
-
 <header>
-    <div class="navbar">
-        <div class="navbar-left">
-            <a href="./trivia.html">Trivia</a>
-            <a href="./highscores.html">High Scores</a>
+  <div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper black">
+          <a href="./index.html" class="brand-logo right">Drink and Think</a>
+          <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="./trivia.html">Trivia</a></li>
+            <li><a href="./highscores.html">High Scores</a></li>
+          </ul>
         </div>
-        <div class="navbar-right">
-            <a class="active" href="./index.html">Drink and Think</a>
-        </div>
-    </div>
+    </nav>
+  </div>
 </header>
-
 <body>
     <div class="content">
         <div class="search1">
             <input type="text" id="searchTerm1" class="options" placeholder="Enter Drink">
-            <button id="searchBtn1" class="btn">Search!</button>
+            <button id="searchBtn1" class="btn grey">Search</button>
         </div>
         <div class="search2">
             <input type="text" id="searchTerm2" class="options" placeholder="Enter Ingredient">
-            <button id="searchBtn2" class="btn">Search!</button>
+            <button id="searchBtn2" class="btn grey">Search</button>
         </div>
     </div>
     <div class="response" id="response-container"></div>
-
-
+    <div class="response" id="response-container-2"></div>
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./assets/js/drinks.js"></script>
-
 </body>
-
 </html>

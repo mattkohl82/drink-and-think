@@ -172,6 +172,7 @@ text-align: center;
 }
 .choice-text {
     padding: 1.5rem;
+    padding-right: 20rem;/*make larger clickable surface*/
     color: #000000;
 }
 .correct {

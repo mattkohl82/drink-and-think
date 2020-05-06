@@ -1,12 +1,17 @@
+$(document).ready(function(){
+
+
 $("#searchBtn1").on("click", function() {
-    $("#searchTerm").val("");
-    //$("#response-container").empty();
+    $("#searchTerm2").val("");
+    $("#response-container").empty();
+    $("input").empty();
 const searchTerm = document.querySelector("#searchTerm1").value;;
 drinkSearch(searchTerm);
 });
 $("#searchBtn2").on("click", function() {
-    $("#searchTerm").val("");
+    $("#searchTerm1").val("");
     $("#response-container").empty();
+
 
 const searchTerm = document.querySelector("#searchTerm2").value;;
 ingredientSearch(searchTerm);
@@ -61,7 +66,9 @@ function drinkSearch(searchTerm) {
         return response.json();
     })
     .then((data) => {
-        $("#response-container").empty();//clears last searched recipe
+        $("#response-container").empty();
+        $("#response-container-2").empty();
+        //clears last searched recipe
         $(".search").empty();
         var drinkData = "";
             console.log(data)
@@ -124,3 +131,5 @@ function drinkSearch(searchTerm) {
        });
     });
 }
+
+});

@@ -59,6 +59,9 @@ $(document).ready(function() {
         var img =  $('<img class="imgIng">').attr("src", drinkPic).attr('id', 'drinkPic').click(function() {
             var searchTerm = drinkType
             drinkSearch(searchTerm);
+            //scroll back to top of page
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
             //$("#response-container").append(div);
             //$("#response-drinks").append(searchResult, img);
             

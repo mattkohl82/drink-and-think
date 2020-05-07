@@ -152,7 +152,7 @@ $(document).ready(function() {
                         $("#response-container-2").append(line)
                     }
                     $("#response-container-2").append(directionsTitle);
-                    var instructions = $("<p>").addClass("drink-instructions recipe-text").text(data.drinks[0].strInstructions);
+                    var instructions = $("<p>").addClass("drink-instructions recipe-text").attr('id', 'directions').text(data.drinks[0].strInstructions);
                     //$(instructions).text().replace(/\.\s/g, '.<br>');
                     $("#response-container-2").append(instructions);
                     $(".search").append(triviaBtn).on('click', function(){
@@ -202,7 +202,7 @@ $(document).ready(function() {
                     $("#response-container-2").append(line)
                 }
                 $("#response-container-2").append(directionsTitle);
-                var instructions = $("<p>").addClass("drink-instructions recipe-text").text(data.drinks[0].strInstructions);
+                var instructions = $("<p>").addClass("drink-instructions recipe-text").attr('id', 'directions').text(data.drinks[0].strInstructions);
                 $('p').html($('p').text().replace('.', '.<br>'));
                 $("#response-container-2").append(instructions);
                 $(".search").append(triviaBtn).on('click', function(){

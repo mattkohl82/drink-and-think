@@ -27,23 +27,37 @@ $(document).ready(function() {
         $("#searchTerm1").val("");
         $("#searchTerm2").val("");
     });
+    // search when search button clicked
     $("#searchBtn1").on("click", function() {
         $("#searchTerm2").val("");
         $("#response-container").empty();
-        //$("input").empty();
-    const searchTerm = document.querySelector("#searchTerm1").value;;
-    drinkSearch(searchTerm);
+        const searchTerm = document.querySelector("#searchTerm1").value;;
+        drinkSearch(searchTerm);
     });
     $("#searchBtn2").on("click", function() {
         $("#searchTerm1").val("");
         $("#response-container").empty();
-
-
-    const searchTerm = document.querySelector("#searchTerm2").value;;
-    ingredientSearch(searchTerm);
+        const searchTerm = document.querySelector("#searchTerm2").value;;
+        ingredientSearch(searchTerm);
     });
 
+    // search when enter key pressed
+    $("#searchTerm1").on('keyup', function(e) {
+        $("#response-container").empty();
+        if (e.keyCode === 13) {
+        const searchTerm = document.querySelector("#searchTerm1").value;
+        drinkSearch(searchTerm);
+        }
+    });
+    $("#searchTerm2").on('keyup', function(e) {
+        $("#response-container").empty();
+        if (e.keyCode === 13) {
+        const searchTerm = document.querySelector("#searchTerm2").value;
+        ingredientSearch(searchTerm);
+        }
+    });
 
+    
     function ingredientSearch(searchTerm) {
         //console.log(searchTerm)
         fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i='+ searchTerm)
@@ -152,8 +166,10 @@ $(document).ready(function() {
                         $("#response-container-2").append(line)
                     }
                     $("#response-container-2").append(directionsTitle);
-                    var instructions = $("<p>").addClass("drink-instructions recipe-text").text(data.drinks[0].strInstructions);
-                    //$(instructions).text().replace(/\.\s/g, '.<br>');
+                    var instructions = $("<p>").addClass("drink-instructions recipe-text").attr('id', 'directions').text(data.drinks[0].strInstructions);
+                    //var sepInstructions = $(instructions).text().replace(/\./g, ".<br>");
+                    //var dispInstructions = $("<p>").addClass("drink-instructions recipe-text").attr('id', 'directions').text(sepInstructions)
+                    //$("#response-container-2").append(sepInstructions);
                     $("#response-container-2").append(instructions);
                     $(".search").append(triviaBtn).on('click', function(){
                         window.location = "./trivia.html";    
@@ -202,8 +218,10 @@ $(document).ready(function() {
                     $("#response-container-2").append(line)
                 }
                 $("#response-container-2").append(directionsTitle);
-                var instructions = $("<p>").addClass("drink-instructions recipe-text").text(data.drinks[0].strInstructions);
-                $('p').html($('p').text().replace('.', '.<br>'));
+                var instructions = $("<p>").addClass("drink-instructions recipe-text").attr('id', 'directions').text(data.drinks[0].strInstructions);
+                //var sepInstructions = $(instructions).text().replace(/\./g, ".<br>");
+                //var dispInstructions = $("<p>").addClass("drink-instructions recipe-text").attr('id', 'directions').text(sepInstructions)
+                //$("#response-container-2").append(sepInstructions);
                 $("#response-container-2").append(instructions);
                 $(".search").append(triviaBtn).on('click', function(){
                     window.location = "./trivia.html";    

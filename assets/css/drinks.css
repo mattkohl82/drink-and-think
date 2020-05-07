@@ -146,13 +146,21 @@ nav ul a {
 }
 .recipe-text {
     color: rgb(231, 228, 228);
-    font-family: 'Roboto Slab', serif;;
+    text-align: center;
+}
+h3 {
+    font-weight: 700;
 }
 
 .drink-instructions {
+    margin: 0 auto;
     list-style-type: none;
     text-shadow: 1.5px 1.5px #000000;
     font-size: 1.5rem;
+}
+#directions {
+    margin-inline-start: 15vw;
+    margin-inline-end: 15vw;
 }
 
 #response-container-2 {
@@ -175,6 +183,10 @@ nav ul a {
 @media screen and (max-width: 768px) {
     .drink-type {
         width: 13rem;
+    }
+    #directions {
+        margin-inline-start: 5vw;
+        margin-inline-end: 5vw;
     }
 }
  /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
@@ -200,5 +212,9 @@ nav ul a {
     .drink-type {
         font-size: 1.1rem;
         width: 8.25rem;
+    }
+    #directions {
+        margin-inline-start: 10vw;
+        margin-inline-end: 10vw;
     }
 }

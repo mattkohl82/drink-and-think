@@ -14,6 +14,8 @@ const question = document.getElementById("question");
 const triviaEl = document.getElementById("game-container");
 const gameEl = document.getElementById("game");
 const choices = Array.from($(".choice-text"));
+const numberQ = document.getElementById("trivia-questions");
+const playBtn = document.getElementById("playBtn")
 const scorePage = document.getElementById("score-container");
 const displayScoreVal = document.getElementById("total-score");
 const submitScore = document.getElementById("submit-btn");
@@ -40,11 +42,14 @@ $(window).scroll(function() {
 //$("#game-container").hide();
 //Build Game Parameters
 //get number of questions selected to put in APIUrl
-$("#trivia-questions").on("input", function(){
+numberQ.addEventListener("keyup", function() {
+    playBtn.disabled = !numberQ.value;
+});    
+$("#trivia-questions").on("input", function() {
     selectedAmount = $(this).val();
 });
 //get value of category selected to put in APIUrl
-$('[name="trivia-category"]').change(function(){
+$('[name="trivia-category"]').change(function() {
     selectedCategory = ('&category=' + $(this).children("option:selected").val());
 });
 //get value of difficulty selected to put in APIUrl
@@ -273,7 +278,9 @@ function endGame () {
     scorePage.classList.remove('hide');
 
 var mostRecentScore = localStorage.getItem('mostRecentScore');
-
+    initials.addEventListener("keyup", () => {
+    submitScore.disabled = !initials.value
+    });
     submitScore.addEventListener('click', function(e) {
         e.preventDefault();
         
@@ -282,6 +289,7 @@ var mostRecentScore = localStorage.getItem('mostRecentScore');
             initials: initials.value
         };
         if (initials.value === "") {
+            //submitScore.disabled
             //window.alert("Initials cannot be blank");
         } else {
             highScores.push(score);

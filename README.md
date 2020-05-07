@@ -2,7 +2,7 @@
 
 Welcome to Drink & Think!
 
-Who doesn't want to have fun making drinks from Home during the Curent State of Lockdown the Country is facing. So, why not create an application that allows the end-user to make drinks from scratch and have fun playign trivia.
+Who doesn't want to have fun making drinks from Home during the Curent State of Lockdown the Country is facing. So, why not create an application that allows the end-user to make drinks from scratch and have fun playing trivia.
 
 Drink and Think is a user friendly application that allows the end-user to challenge other on a game of trivia while enjoying their favorite cocktail.
 

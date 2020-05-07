@@ -186,5 +186,20 @@ $(document).ready(function(){
             }
             
         });
+<<<<<<< HEAD
     }
+=======
+        }
+        function embedVideo(data) {
+            $('iframe').attr('src', 'https://www.youtube.com/embed/' + data.items[0].id.videoId).show()
+            //$('h3').text(data.items[0].snippet.title).show() to show title snippet
+            //$('.description').text(data.items[0].snippet.description).show() to show description snippet
+        }
+    getVideo();
+    });
+});
+
+$(document).ready(function(){
+    $('.sidenav').sidenav();
+>>>>>>> feature/style
 });

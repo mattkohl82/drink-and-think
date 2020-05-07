@@ -186,23 +186,24 @@ $(document).ready(function(){
             }
             
         });
-<<<<<<< HEAD
-<<<<<<< HEAD
+
+    }   
+
         // display list with measurement and  ingredient 
         for (var i = 0; i < ingredients.length; i++) {
             var meas = measurements[i];
             var ing = ingredients[i];
             let line = $("<li class='ingredient-list'>").text(meas + " " + ing)
             $("#response-container-2").append(line)
-=======
+
     }
-=======
+
         }
         function embedVideo(data) {
             $('iframe').attr('src', 'https://www.youtube.com/embed/' + data.items[0].id.videoId).show()
             //$('h3').text(data.items[0].snippet.title).show() to show title snippet
             //$('.description').text(data.items[0].snippet.description).show() to show description snippet
->>>>>>> 5ff5da477ff07dfbb0989c8841d3a8d3abb64d09
+
         }
         $("#response-container-2").append(driectionsTitle);
         var instructions = $("<p class='drink-intructions'>").addClass().text(data.drinks[0].strInstructions);
@@ -212,20 +213,14 @@ $(document).ready(function(){
             window.location = "./trivia.html";    
        });
     });
-<<<<<<< HEAD
+
 }
 
-=======
 });
 
 $(document).ready(function(){
     $('.sidenav').sidenav();
-<<<<<<< HEAD
->>>>>>> 52c9e1d5655b4f195146827f970833317e818612
-=======
+
     }
->>>>>>> e62acab50a43d6a75f31e79781c50f6fa52f1456
-=======
->>>>>>> feature/style
->>>>>>> 5ff5da477ff07dfbb0989c8841d3a8d3abb64d09
+
 });

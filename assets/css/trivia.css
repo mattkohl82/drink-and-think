@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 :root {
     /*background-color: #000000;*/
     font-size: 62.5%;
@@ -41,6 +42,29 @@ header nav ul li a {
     padding: 10px 15px;
     font-weight: lighter;
     font-size: 20px;
+=======
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.brand-logo {
+    font-family: cursive;
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: block;
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 4px;
+    color: white;
+    resize: vertical;
+    text-align: center;
+>>>>>>> 52c9e1d5655b4f195146827f970833317e818612
 }
 /*Header Styling End*/
 h1,
@@ -48,11 +72,22 @@ h2,
 h3,
 h4 {
 margin-bottom: 1rem;
+<<<<<<< HEAD
+=======
+color: white;
+>>>>>>> 52c9e1d5655b4f195146827f970833317e818612
 }
 
 h1 {
 font-size: 5.4rem;
+<<<<<<< HEAD
 margin-bottom: 5rem;
+=======
+color: white;
+text-align: center;
+font-weight: bold;
+margin-top: 30px;
+>>>>>>> 52c9e1d5655b4f195146827f970833317e818612
 }
 
 h1 > span {
@@ -172,7 +207,10 @@ text-align: center;
 }
 .choice-text {
     padding: 1.5rem;
+<<<<<<< HEAD
     padding-right: 20rem;/*make larger clickable surface*/
+=======
+>>>>>>> 52c9e1d5655b4f195146827f970833317e818612
     color: #000000;
 }
 .correct {
@@ -198,6 +236,7 @@ text-align: center;
 }
 /* BUTTONS */
 .btn {
+<<<<<<< HEAD
 font-size: 1.8rem;
 padding: 1rem 0;
 width: 12rem;
@@ -208,6 +247,32 @@ margin: 1rem;
 text-decoration: none;
 color: #ffffff;
 background-color: rgba(204, 204, 204, 0.5);
+=======
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    font-size: .7rem;
+    width: 10rem;
+    border: 1px solid #ffffff;
+    border-radius: 5000px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: rgba(204, 204, 204, 0.5);
+/* width: 12rem;
+border: 1px solid #ffffff;
+border-radius: 10px;
+text-decoration: none;
+color: #ffffff;
+border-radius: 5000px;
+background-color: rgba(204, 204, 204, 0.5);
+justify-content: center;
+align-items: center;
+font-size: 1rem;
+letter-spacing: 2px;
+padding: 0 0; */
+>>>>>>> 52c9e1d5655b4f195146827f970833317e818612
 }
 
 .btn:hover {

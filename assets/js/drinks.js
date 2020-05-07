@@ -130,6 +130,13 @@ function drinkSearch(searchTerm) {
             window.location = "./trivia.html";    
        });
     });
+<<<<<<< HEAD
 }
 
+=======
+});
+
+$(document).ready(function(){
+    $('.sidenav').sidenav();
+>>>>>>> 52c9e1d5655b4f195146827f970833317e818612
 });

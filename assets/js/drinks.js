@@ -153,7 +153,9 @@ $(document).ready(function() {
                     }
                     $("#response-container-2").append(directionsTitle);
                     var instructions = $("<p>").addClass("drink-instructions recipe-text").attr('id', 'directions').text(data.drinks[0].strInstructions);
-                    //$(instructions).text().replace(/\.\s/g, '.<br>');
+                    //var sepInstructions = $(instructions).text().replace(/\./g, ".<br>");
+                    //var dispInstructions = $("<p>").addClass("drink-instructions recipe-text").attr('id', 'directions').text(sepInstructions)
+                    //$("#response-container-2").append(sepInstructions);
                     $("#response-container-2").append(instructions);
                     $(".search").append(triviaBtn).on('click', function(){
                         window.location = "./trivia.html";    
@@ -203,7 +205,9 @@ $(document).ready(function() {
                 }
                 $("#response-container-2").append(directionsTitle);
                 var instructions = $("<p>").addClass("drink-instructions recipe-text").attr('id', 'directions').text(data.drinks[0].strInstructions);
-                $('p').html($('p').text().replace('.', '.<br>'));
+                //var sepInstructions = $(instructions).text().replace(/\./g, ".<br>");
+                //var dispInstructions = $("<p>").addClass("drink-instructions recipe-text").attr('id', 'directions').text(sepInstructions)
+                //$("#response-container-2").append(sepInstructions);
                 $("#response-container-2").append(instructions);
                 $(".search").append(triviaBtn).on('click', function(){
                     window.location = "./trivia.html";    

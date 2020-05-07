@@ -176,7 +176,7 @@ $(document).ready(function(){
                     $("#response-container-2").append(line)
                 }
                 $("#response-container-2").append(directionsTitle);
-                var instructions = $("<p>").addClass("drink-intructions").text(data.drinks[0].strInstructions);
+                var instructions = $("<p>").addClass("drink-instructions").text(data.drinks[0].strInstructions);
                 $('p').html($('p').text().replace('.', '.<br>'));
                 $("#response-container-2").append(instructions);
                 $(".search").append(triviaBtn).on('click', function(){
@@ -184,7 +184,6 @@ $(document).ready(function(){
                 });
                 
             }
-            
         });
     }   
 });

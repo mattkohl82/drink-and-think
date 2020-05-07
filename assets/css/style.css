@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    font-family: "Times New Roman", Times, cursive;
+    margin: 0;
+    padding: 0;
+    }
 body {
     background-repeat: no-repeat;
     background-size: cover;
@@ -12,23 +18,21 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: "Times New Roman", Times, cursive;
 }
 .content header {
     color: white;
     text-align: center;
-    font-size: 40px;
+    font-size: 5rem;
     font-weight: bold;
     font-family: cursive;
     margin-top: 30px;
-    font-family: "Times New Roman", Times, cursive;
+    font-family: cursive;
 }
 .content p {
-    margin: 5%;
-    color: white;
+    margin-bottom: 5%;
+    color: rgb(231, 228, 228);
     text-align: center;
-    font-size: 18px;
-    font-family: "Times New Roman", Times, cursive;
+    font-size: 1.8rem;
 }
 
 .btn {
@@ -55,4 +59,27 @@ body {
     font-size: 1rem;
     letter-spacing: 2px;
     border: 1px solid #ffffff; */
+}
+
+/* MEDIA QUERY FOR TABLETS AND SMALLER */
+@media screen and (max-width: 768x) {
+    .content header {
+        font-size: 4rem;
+    }
+    .content p {
+        color: rgb(231, 228, 228);
+        text-align: center;
+        font-size: 2rem;
+    }
+}
+/* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+@media screen and (max-width: 575px) {
+    .content header {
+        font-size: 3rem;
+    }
+    .content p {
+        color: rgb(231, 228, 228);
+        text-align: center;
+        font-size: 1.4rem;
+    }
 }

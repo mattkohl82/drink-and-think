@@ -5,6 +5,7 @@ body {
     background-attachment: fixed;
     background-position: center;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./drinks.jpg");
+    font-family: "Times New Roman", Times, cursive;
 }
 /* .top-bar, .top-bar-left ul {
     background: orange;
@@ -17,20 +18,23 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-family: "Times New Roman", Times, cursive;
 }
 .content header {
     color: white;
     text-align: center;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: bold;
     font-family: cursive;
     margin-top: 30px;
+    font-family: "Times New Roman", Times, cursive;
 }
 .content p {
     margin: 5%;
     color: white;
     text-align: center;
     font-size: 18px;
+    font-family: "Times New Roman", Times, cursive;
 }
 
 /* .content:hover {

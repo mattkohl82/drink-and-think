@@ -114,11 +114,31 @@ body {
     max-height: 15rem;
     height: auto;
     max-width: 100%;
+<<<<<<< HEAD
+=======
+}
+.recipe-text {
+    color: rgb(231, 228, 228);
+    font-family: "Times New Roman", Times, serif;
+}
+
+.drink-instructions {
+    list-style-type: none;
+    text-shadow: 1.5px 1.5px #000000;
+    font-size: 1.5rem;
+}
+
+#response-container-2 {
+    display: grid;
+    grid-template-columns: 100%;
+    align-items: center;
+    justify-items: center;
+>>>>>>> e62acab50a43d6a75f31e79781c50f6fa52f1456
 
 }
 
  /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
- @media screen and (max-width: 575px) {
+@media screen and (max-width: 575px) {
     .response { 
         grid-template-columns: repeat(3, 1fr);
     }

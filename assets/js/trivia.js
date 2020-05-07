@@ -26,6 +26,17 @@ let questionCounter = 0;
 let availableQuestions = [];
 
 let questions = [];
+
+// mobile nav
+$(document).ready(function() {
+    $('.sidenav').sidenav();
+});
+//change navbar to solid on scroll
+$(window).scroll(function() {
+	$('nav').toggleClass('scrolled', $(this).scrollTop() > 50);
+});
+
+
 //$("#game-container").hide();
 //Build Game Parameters
 //get number of questions selected to put in APIUrl
@@ -313,7 +324,14 @@ let acceptingAnswers = false;//
 const MAX_QUESTIONS = 5;//
 
 //$("#game-container").hide();
-
+// mobile nav
+$(document).ready(function() {
+    $('.sidenav').sidenav();
+});
+//change navbar to solid on scroll
+$(window).scroll(function() {
+	$('nav').toggleClass('scrolled', $(this).scrollTop() > 50);
+});
 // start game when play button is clicked
 $("#playBtn").on("click", function(e) {
     e.preventDefault();

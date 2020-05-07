@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Times New Roman", Times;
     margin: 0;
     padding: 0;
     color: rgb(255, 255, 255);
@@ -8,6 +8,13 @@
 
 .brand-logo {
     font-family: cursive;
+}
+.navbar-default {
+    transition:500ms ease;
+    background:transparent;
+}
+.navbar-default.scrolled {
+    background: rgb(0, 0, 0);
 }
 .sticky {
     position: fixed;

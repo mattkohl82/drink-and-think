@@ -1,4 +1,8 @@
-$(document).ready(function(){
+//change navbar to solid on scroll
+$(window).scroll(function() {
+	$('nav').toggleClass('scrolled', $(this).scrollTop() > 50);
+});
+$(document).ready(function() {
     //side navigation
     $('.sidenav').sidenav();
     

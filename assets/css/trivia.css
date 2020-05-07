@@ -79,10 +79,14 @@ color: white;
 }
 
 h1 {
+<<<<<<< HEAD
 font-size: 5.4rem;
 <<<<<<< HEAD
 margin-bottom: 5rem;
 =======
+=======
+font-size: 4rem;
+>>>>>>> f2ea8891386d3fc8d24c618f68e0fd63a4c6502e
 color: white;
 text-align: center;
 font-weight: bold;

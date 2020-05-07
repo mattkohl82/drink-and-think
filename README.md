@@ -16,13 +16,19 @@ Logic for Drink and Think:
 
 Technology:
 1.HTML
-2.CSS
+2.CSS- Foundation and Materialized CSS Framework
 3.Javascript
 4.JQuery
-5.Cocktaildb API https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=
+5.Git/GitHub
+6.Web-API's
 ```
 
-![index](assets\css\main.png)
+![Main](assets\css\main.png)
 
 
-![index](assets\css\secondarypage.png)
+![Secondarypage](assets\css\secondarypage.png)
+
+
+
+- - -
+© 2020 Drink & Think, Inc. brand. All Rights Reserved.

@@ -1,13 +1,13 @@
 * {
     box-sizing: border-box;
-    font-family: garamond;
+    font-family: 'Roboto Slab', serif;;
     margin: 0;
     padding: 0;
     color: rgb(255, 255, 255);
 }
 
 .brand-logo {
-    font-family: garamond;
+    font-weight: 700;
 }
 .navbar-default {
     transition:500ms ease;
@@ -249,7 +249,7 @@ ol {
     list-style-position: inside;
     padding: 1rem;
     margin-bottom: 1.5rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .result {

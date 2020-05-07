@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: garamond;
+    font-family: 'Roboto Slab', serif;
     margin: 0;
     padding: 0;
     }
@@ -46,17 +46,7 @@ body {
     text-decoration: none;
     color: #ffffff;
     background-color: rgba(204, 204, 204, 0.5);
-    /* right: 30%;
-    left: 30%;
-    border: 0;
-    border-radius: 5000px;
-    padding: 1rem 2rem;
-    text-transform: uppercase;
-    position: relative;
-    overflow: hidden;
-    font-size: 1rem;
-    letter-spacing: 2px;
-    border: 1px solid #ffffff; */
+
 }
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
 @media screen and (max-width: 980px) {

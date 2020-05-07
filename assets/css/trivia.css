@@ -244,7 +244,9 @@ cursor: not-allowed;
     margin: 0 auto;
 }
 /* Style HighScores page*/
-
+#finalScore {
+    font-weight: 700;
+}
 ol {
     list-style-position: inside;
     padding: 1rem;

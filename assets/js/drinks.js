@@ -27,23 +27,37 @@ $(document).ready(function() {
         $("#searchTerm1").val("");
         $("#searchTerm2").val("");
     });
+    // search when search button clicked
     $("#searchBtn1").on("click", function() {
         $("#searchTerm2").val("");
         $("#response-container").empty();
-        //$("input").empty();
-    const searchTerm = document.querySelector("#searchTerm1").value;;
-    drinkSearch(searchTerm);
+        const searchTerm = document.querySelector("#searchTerm1").value;;
+        drinkSearch(searchTerm);
     });
     $("#searchBtn2").on("click", function() {
         $("#searchTerm1").val("");
         $("#response-container").empty();
-
-
-    const searchTerm = document.querySelector("#searchTerm2").value;;
-    ingredientSearch(searchTerm);
+        const searchTerm = document.querySelector("#searchTerm2").value;;
+        ingredientSearch(searchTerm);
     });
 
+    // search when enter key pressed
+    $("#searchTerm1").on('keyup', function(e) {
+        $("#response-container").empty();
+        if (e.keyCode === 13) {
+        const searchTerm = document.querySelector("#searchTerm1").value;
+        drinkSearch(searchTerm);
+        }
+    });
+    $("#searchTerm2").on('keyup', function(e) {
+        $("#response-container").empty();
+        if (e.keyCode === 13) {
+        const searchTerm = document.querySelector("#searchTerm2").value;
+        ingredientSearch(searchTerm);
+        }
+    });
 
+    
     function ingredientSearch(searchTerm) {
         //console.log(searchTerm)
         fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i='+ searchTerm)

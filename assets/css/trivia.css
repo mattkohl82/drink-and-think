@@ -187,18 +187,6 @@ text-align: center;
     text-decoration: none;
     color: #ffffff;
     background-color: rgba(204, 204, 204, 0.5);
-/* width: 12rem;
-border: 1px solid #ffffff;
-border-radius: 10px;
-text-decoration: none;
-color: #ffffff;
-border-radius: 5000px;
-background-color: rgba(204, 204, 204, 0.5);
-justify-content: center;
-align-items: center;
-font-size: 1rem;
-letter-spacing: 2px;
-padding: 0 0; */
 }
 
 .btn:hover {

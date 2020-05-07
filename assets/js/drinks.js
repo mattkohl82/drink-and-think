@@ -96,7 +96,7 @@ $(document).ready(function(){
                     var ingredientsTitle = $("<h3>").addClass("recipe-text").text("Ingredients")
                     var img =  $("<img>").attr("src", data.drinks[0].strDrinkThumb).attr('id', 'drinkPic')
                     var directionsTitle = $("<h3>").addClass("recipe-text").text("Directions")
-                    var triviaBtn = $("<button>").addClass("btn grey").text("Trivia Time!")
+                    var triviaBtn = $("<button>").addClass("btn").text("Trivia Time!")
                     
                     $("#response-container-2").append("<p>").addClass("drink-instructions recipe-text").text("We're sorry we couldn't what you were looking for. Please try a new search or this drink instead!")     
                     $("#response-container-2").append(drinkName);
@@ -147,7 +147,7 @@ $(document).ready(function(){
                     var ingredientsTitle = $("<h3>").addClass("recipe-text").text("Ingredients")
                     var img =  $("<img>").attr("src", data.drinks[0].strDrinkThumb).attr('id', 'drinkPic')
                     var directionsTitle = $("<h3>").addClass("recipe-text").text("Directions")
-                    var triviaBtn = $("<button>").addClass("btn grey").text("Trivia Time!")
+                    var triviaBtn = $("<button>").addClass("btn").text("Trivia Time!")
                             
                 $("#response-container-2").append(drinkName);
                 $("#response-container-2").append(img);

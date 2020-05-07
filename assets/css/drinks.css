@@ -74,12 +74,8 @@ nav ul a {
 }
 .btn:hover {
     cursor: pointer;
-    /* background-color:rgb(120, 250, 218); */
-    background-color:  rgb(75, 75, 75);
+    background-color:rgb(120, 250, 218);
 }
-
-
-
 /* GRID*/
 .response {
     display: grid;

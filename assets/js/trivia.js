@@ -1,5 +1,5 @@
 
-/*USE THIS CODE/FIX ONCE API IS UP
+//USE THIS CODE/FIX ONCE API IS UP
 
 var selectedAmount;
 var selectedCategory;
@@ -294,8 +294,8 @@ var mostRecentScore = localStorage.getItem('mostRecentScore');
         }
     });
 }
-*/
 
+/*
 //THIS CODE IS FOR THE HARD CODED QUESTIONS ONLY WHEN API NOT WORKING
 var selectedAmount;
 var selectedCategory;
@@ -497,5 +497,5 @@ let questions = [
     },
 ];
 //END OF CODE FOR HARDCODED QUESTIONS WHEN API IS WORKING
-
+*/
 

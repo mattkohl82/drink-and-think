@@ -1,5 +1,7 @@
 $(document).ready(function(){
-
+    //side navigation
+    $('.sidenav').sidenav();
+    
     $("input").on("click", function() {
         $("#searchTerm1").val("");
         $("#searchTerm2").val("");
@@ -187,8 +189,9 @@ $(document).ready(function(){
             
         });
     }   
+    
 });
 
-$(document).ready(function(){
+/*$(document).ready(function(){
     $('.sidenav').sidenav();
-});
+});*/

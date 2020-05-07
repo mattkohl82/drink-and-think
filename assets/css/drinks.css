@@ -29,6 +29,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 200px; /* Should be removed. Only for demonstration */
+    margin: 0 10px;
 }
 .options {
     width: 100%;
@@ -134,7 +135,7 @@ body {
     grid-template-columns: 100%;
     align-items: center;
     justify-items: center;
-
+    margin: 0 10px;
 }
 
  /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */

@@ -118,39 +118,15 @@ body {
     height: auto;
     max-width: 100%;
 }
-
-.drink-name {
+.recipe-text {
     color: rgb(231, 228, 228);
     font-family: "Times New Roman", Times, serif;
-    
-}
-
-.ingredients-title {
-    color: rgb(231, 228, 228);
-    font-family: "Times New Roman", Times, serif;
-    
 }
 
 .ingredient-list {
-    color: rgb(231, 228, 228);
     list-style-type: none;
     text-shadow: 1.5px 1.5px #000000;
     font-size: 1.5rem;
-    font-family: "Times New Roman", Times, serif;
-}
-
-.drink-intructions {
-    color: rgb(231, 228, 228);
-    list-style-type: none;
-    text-shadow: 1.5px 1.5px #000000;
-    font-size: 1.5rem;
-    font-family: "Times New Roman", Times, serif;
-}
-
-.directions-title {
-    color: rgb(231, 228, 228);
-    font-family: "Times New Roman", Times, serif;
-    
 }
 
 #response-container-2 {
@@ -161,12 +137,8 @@ body {
 
 }
 
-
-
-
-
  /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
- @media screen and (max-width: 575px) {
+@media screen and (max-width: 575px) {
     .response { 
         grid-template-columns: repeat(3, 1fr);
     }

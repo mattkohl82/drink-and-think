@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 :root {
     /*background-color: #000000;*/
     font-size: 62.5%;
@@ -43,6 +44,8 @@ header nav ul li a {
     font-weight: lighter;
     font-size: 20px;
 =======
+=======
+>>>>>>> 5ff5da477ff07dfbb0989c8841d3a8d3abb64d09
 * {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
@@ -64,7 +67,10 @@ header nav ul li a {
     color: white;
     resize: vertical;
     text-align: center;
+<<<<<<< HEAD
 >>>>>>> 52c9e1d5655b4f195146827f970833317e818612
+=======
+>>>>>>> 5ff5da477ff07dfbb0989c8841d3a8d3abb64d09
 }
 /*Header Styling End*/
 h1,
@@ -72,6 +78,7 @@ h2,
 h3,
 h4 {
 margin-bottom: 1rem;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 color: white;
@@ -85,13 +92,22 @@ font-size: 5.4rem;
 margin-bottom: 5rem;
 =======
 =======
+=======
+color: white;
+}
+
+h1 {
+>>>>>>> 5ff5da477ff07dfbb0989c8841d3a8d3abb64d09
 font-size: 4rem;
 >>>>>>> f2ea8891386d3fc8d24c618f68e0fd63a4c6502e
 color: white;
 text-align: center;
 font-weight: bold;
 margin-top: 30px;
+<<<<<<< HEAD
 >>>>>>> 52c9e1d5655b4f195146827f970833317e818612
+=======
+>>>>>>> 5ff5da477ff07dfbb0989c8841d3a8d3abb64d09
 }
 
 h1 > span {
@@ -212,9 +228,12 @@ text-align: center;
 .choice-text {
     padding: 1.5rem;
 <<<<<<< HEAD
+<<<<<<< HEAD
     padding-right: 20rem;/*make larger clickable surface*/
 =======
 >>>>>>> 52c9e1d5655b4f195146827f970833317e818612
+=======
+>>>>>>> 5ff5da477ff07dfbb0989c8841d3a8d3abb64d09
     color: #000000;
 }
 .correct {
@@ -241,6 +260,7 @@ text-align: center;
 /* BUTTONS */
 .btn {
 <<<<<<< HEAD
+<<<<<<< HEAD
 font-size: 1.8rem;
 padding: 1rem 0;
 width: 12rem;
@@ -252,6 +272,8 @@ text-decoration: none;
 color: #ffffff;
 background-color: rgba(204, 204, 204, 0.5);
 =======
+=======
+>>>>>>> 5ff5da477ff07dfbb0989c8841d3a8d3abb64d09
     display: flex;
     align-items: center;
     justify-content: center;
@@ -276,7 +298,10 @@ align-items: center;
 font-size: 1rem;
 letter-spacing: 2px;
 padding: 0 0; */
+<<<<<<< HEAD
 >>>>>>> 52c9e1d5655b4f195146827f970833317e818612
+=======
+>>>>>>> 5ff5da477ff07dfbb0989c8841d3a8d3abb64d09
 }
 
 .btn:hover {

@@ -19,14 +19,15 @@ Technology:
 2.CSS- Foundation and Materialized CSS Framework
 3.Javascript
 4.JQuery
-5.Git/GitHub
-6.Web-API's
+5.Slack
+6.Git/GitHub
+7.Web-API's
 ```
 
-![Main](assets\css\main.png)
+![Main](assets/css/main.png)
 
 
-![Secondarypage](assets\css\secondarypage.png)
+![Secondarypage](assets/css/secondarypage.png)
 
 
 

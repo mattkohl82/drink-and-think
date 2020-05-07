@@ -28,14 +28,14 @@ $(document).ready(function() {
 
 
     function ingredientSearch(searchTerm) {
-        console.log(searchTerm)
+        //console.log(searchTerm)
         fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i='+ searchTerm)
             
         .then((response) => {
             return response.json();
         })
         .then((data) => {
-            console.log(data)
+            //console.log(data)
             $("#response-container-2").empty();
             var drinkData = "";
             if (data.drinks.length > 1){
@@ -44,7 +44,7 @@ $(document).ready(function() {
                 for (var i = 0; i < data.drinks.length; i++) {// display each drink stored in local storage
                     var drinkType = data.drinks[i].strDrink;
                     var drinkPic = data.drinks[i].strDrinkThumb;
-                    console.log (data.drinks[i].strDrink)
+                    //console.log (data.drinks[i].strDrink)
                     showDrinks(drinkType, drinkPic);
                 }
             }
@@ -81,12 +81,12 @@ $(document).ready(function() {
             //clears last searched recipe
             $(".search").empty();
             var drinkData = "";
-                console.log(data)
+                //console.log(data)
             //var resultsArray = [data];
-                console.log(data.drinks)
+                //console.log(data.drinks)
             if (data.drinks == null) {
                 //advise user their search did not return results and offer a random drink recipe
-                console.log("array is empty/null")
+                //console.log("array is empty/null")
                 fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
                 .then((response) => {
                     return response.json();
@@ -141,7 +141,7 @@ $(document).ready(function() {
                 });
                 
             } else {
-                console.log("array is not empty");
+                //console.log("array is not empty");
                 drinkData = data.drinks[0]
                 var ingredients = [];
                 var measurements = [];

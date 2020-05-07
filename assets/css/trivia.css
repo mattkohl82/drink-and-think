@@ -1,13 +1,13 @@
 * {
     box-sizing: border-box;
-    font-family: "Times New Roman", Times;
+    font-family: garamond;
     margin: 0;
     padding: 0;
     color: rgb(255, 255, 255);
 }
 
 .brand-logo {
-    font-family: cursive;
+    font-family: garamond;
 }
 .navbar-default {
     transition:500ms ease;

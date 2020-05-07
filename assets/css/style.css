@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: "Times New Roman", Times, cursive;
+    font-family: garamond;
     margin: 0;
     padding: 0;
     }
@@ -24,9 +24,7 @@ body {
     text-align: center;
     font-size: 5rem;
     font-weight: bold;
-    font-family: cursive;
     margin-top: 30px;
-    font-family: cursive;
 }
 .content p {
     margin-bottom: 5%;

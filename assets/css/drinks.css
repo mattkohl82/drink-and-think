@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: "Times New Roman", Times, cursive;
+    font-family: garamond;
     margin: 0;
     padding: 0;
     }
@@ -20,7 +20,7 @@ body {
     background: rgb(0, 0, 0);
 }
 .brand-logo {
-    font-family: cursive;
+    font-family: garamond;
 
 }
 .search1 {
@@ -127,7 +127,7 @@ nav ul a {
 }
 .recipe-text {
     color: rgb(231, 228, 228);
-    font-family: "Times New Roman", Times, serif;
+    font-family: garamond;
 }
 
 .drink-instructions {

@@ -28,3 +28,6 @@ Technology:
 ```
 
 ![main](assets/css/main.png)
+
+- - -
+© 2020 Drink & Think, Inc. brand. All Rights Reserved.

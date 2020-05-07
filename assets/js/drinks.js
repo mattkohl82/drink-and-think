@@ -186,9 +186,41 @@ $(document).ready(function(){
             }
             
         });
+
     }   
+
+        // display list with measurement and  ingredient 
+        for (var i = 0; i < ingredients.length; i++) {
+            var meas = measurements[i];
+            var ing = ingredients[i];
+            let line = $("<li class='ingredient-list'>").text(meas + " " + ing)
+            $("#response-container-2").append(line)
+
+    }
+
+        }
+        function embedVideo(data) {
+            $('iframe').attr('src', 'https://www.youtube.com/embed/' + data.items[0].id.videoId).show()
+            //$('h3').text(data.items[0].snippet.title).show() to show title snippet
+            //$('.description').text(data.items[0].snippet.description).show() to show description snippet
+
+        }
+        $("#response-container-2").append(driectionsTitle);
+        var instructions = $("<p class='drink-intructions'>").addClass().text(data.drinks[0].strInstructions);
+        $('p').html($('p').text().replace('.', '.<br>'));
+        $("#response-container-2").append(instructions);
+        $(".search").append(triviaBtn).on('click', function(){
+            window.location = "./trivia.html";    
+       });
+    });
+
+}
+
 });
 
 $(document).ready(function(){
     $('.sidenav').sidenav();
+
+    }
+
 });

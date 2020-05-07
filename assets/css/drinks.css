@@ -98,7 +98,7 @@ body {
     max-width: 100%;
 }
 
-#drink-type {
+.drink-type {
     font-size: 1.2vw;
     text-decoration: bold;
     color: rgb(255, 255, 255);
@@ -138,6 +138,19 @@ body {
     margin: 0 10px;
 }
 
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+@media screen and (max-width: 980px) {
+    .drink-type {
+        font-size: 2vw;
+        width: 15rem;
+    }
+}
+/* MEDIA QUERY FOR TABLETS AND SMALLER */
+@media screen and (max-width: 768px) {
+    .drink-type {
+        width: 13rem;
+    }
+}
  /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
 @media screen and (max-width: 575px) {
     .response { 
@@ -152,6 +165,14 @@ body {
         margin-left: 10px;
     }
     .drink-type {
-        font-size: 8px;
+        font-size: 1.1rem;
+        width: 8.25rem;
+    }
+}
+ /* MEDIA QUERY FOR Small MOBILE PHONES AND SMALLER */
+ @media screen and (max-width: 375px) {
+    .drink-type {
+        font-size: 1.1rem;
+        width: 8.25rem;
     }
 }

@@ -51,7 +51,7 @@ $(document).ready(function(){
     function showDrinks(drinkType, drinkPic) {
         var contResults = $("<div>").addClass("drink-card");
         //var div = $('<div class="response-drinks">');
-        var searchResult = $('<p class="drink-type" id="drink-type">').text(drinkType);
+        var searchResult = $("<p>").addClass("drink-type").attr("id", "drink-type").text(drinkType);
         var img =  $('<img class="imgIng">').attr("src", drinkPic).attr('id', 'drinkPic').click(function() {
             var searchTerm = drinkType
             drinkSearch(searchTerm);

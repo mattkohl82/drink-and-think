@@ -54,6 +54,9 @@ body {
     resize: vertical;
     text-align: center;
 }
+nav ul a {
+    font-size: 1.5rem;
+}
 /* BUTTONS */
 .btn {
     display: flex;

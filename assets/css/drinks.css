@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: "Times New Roman", Times, cursive;
+    font-family: garamond;
     margin: 0;
     padding: 0;
     }
@@ -12,8 +12,15 @@ body {
     /*background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5));*/
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("./drinks.jpg");
 }
+.navbar-default {
+    transition:500ms ease;
+    background:transparent;
+}
+.navbar-default.scrolled {
+    background: rgb(0, 0, 0);
+}
 .brand-logo {
-    font-family: "Times New Roman", Times, cursive;
+    font-family: garamond;
 
 }
 .search1 {
@@ -29,6 +36,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 200px; /* Should be removed. Only for demonstration */
+    margin: 0 10px;
 }
 .options {
     width: 100%;
@@ -53,6 +61,9 @@ body {
     resize: vertical;
     text-align: center;
 }
+nav ul a {
+    font-size: 1.5rem;
+}
 /* BUTTONS */
 .btn {
     display: flex;
@@ -70,12 +81,8 @@ body {
 }
 .btn:hover {
     cursor: pointer;
-    /* background-color:rgb(120, 250, 218); */
-    background-color:  rgb(75, 75, 75);
+    background-color:rgb(120, 250, 218);
 }
-
-
-
 /* GRID*/
 .response {
     display: grid;
@@ -97,13 +104,13 @@ body {
     max-width: 100%;
 }
 
-#drink-type {
-    font-size: 1.2vw;
+.drink-type {
+    font-size: 1.5vw;
     text-decoration: bold;
     color: rgb(255, 255, 255);
     /*text-shadow: 1.5px 1.5px #ffffff;*/
     background: rgba(0, 0, 0, 0.5);
-    width: 61%;
+    width: 15rem;
     margin-bottom: 1rem;
     position: absolute;
     top: 50%;
@@ -118,39 +125,15 @@ body {
     height: auto;
     max-width: 100%;
 }
-
-.drink-name {
+.recipe-text {
     color: rgb(231, 228, 228);
-    font-family: "Times New Roman", Times, serif;
-    
+    font-family: garamond;
 }
 
-.ingredients-title {
-    color: rgb(231, 228, 228);
-    font-family: "Times New Roman", Times, serif;
-    
-}
-
-.ingredient-list {
-    color: rgb(231, 228, 228);
+.drink-instructions {
     list-style-type: none;
     text-shadow: 1.5px 1.5px #000000;
     font-size: 1.5rem;
-    font-family: "Times New Roman", Times, serif;
-}
-
-.drink-intructions {
-    color: rgb(231, 228, 228);
-    list-style-type: none;
-    text-shadow: 1.5px 1.5px #000000;
-    font-size: 1.5rem;
-    font-family: "Times New Roman", Times, serif;
-}
-
-.directions-title {
-    color: rgb(231, 228, 228);
-    font-family: "Times New Roman", Times, serif;
-    
 }
 
 #response-container-2 {
@@ -158,15 +141,25 @@ body {
     grid-template-columns: 100%;
     align-items: center;
     justify-items: center;
-
+    margin: 0 10px;
 }
 
 
-
-
-
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+@media screen and (max-width: 980px) {
+    .drink-type {
+        font-size: 2vw;
+        width: 15rem;
+    }
+}
+/* MEDIA QUERY FOR TABLETS AND SMALLER */
+@media screen and (max-width: 768px) {
+    .drink-type {
+        width: 13rem;
+    }
+}
  /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
- @media screen and (max-width: 575px) {
+@media screen and (max-width: 575px) {
     .response { 
         grid-template-columns: repeat(3, 1fr);
     }
@@ -179,6 +172,14 @@ body {
         margin-left: 10px;
     }
     .drink-type {
-        font-size: 8px;
+        font-size: 1.1rem;
+        width: 8.25rem;
+    }
+}
+ /* MEDIA QUERY FOR Small MOBILE PHONES AND SMALLER */
+ @media screen and (max-width: 375px) {
+    .drink-type {
+        font-size: 1.1rem;
+        width: 8.25rem;
     }
 }

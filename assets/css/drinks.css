@@ -203,11 +203,28 @@ h3 {
     }
     .drink-type {
         font-size: 1.1rem;
-        width: 8.25rem;
+    }
+}
+/* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+@media screen and (max-width: 414px) {
+    .drink-type {
+        width: 9.15rem;
+    }
+    #drinkPic {
+        max-height: 12rem;
+    }
+    h1.recipe-text {
+        font-size: 2.8rem;
+    }
+    h3.recipe-text {
+        font-size: 2.1rem;
+    }
+    .drink-instructions {
+        font-size: 1.1rem;
     }
 }
  /* MEDIA QUERY FOR Small MOBILE PHONES AND SMALLER */
- @media screen and (max-width: 375px) {
+@media screen and (max-width: 375px) {
     .drink-type {
         font-size: 1.1rem;
         width: 8.25rem;

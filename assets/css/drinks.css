@@ -35,7 +35,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 200px; /* Should be removed. Only for demonstration */
     margin: 0 10px;
 }
 .options {

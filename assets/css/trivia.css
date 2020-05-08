@@ -1,46 +1,32 @@
-:root {
-    /*background-color: #000000;*/
-    font-size: 62.5%;
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto Slab', serif;;
+    margin: 0;
+    padding: 0;
+    color: rgb(255, 255, 255);
 }
 
-* {
-box-sizing: border-box;
-font-family: "Times New Roman", Times, cursive;
-margin: 0;
-padding: 0;
-color: rgb(255, 255, 255);
+.brand-logo {
+    font-weight: 700;
 }
-/*Header Styling start-needs to be replaced*/
-header {
-    width: 100vw;
-    padding: 20px;
-    display:flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+.navbar-default {
+    transition:500ms ease;
+    background:transparent;
 }
-header h1 {
-    font-weight: lighter;
-    font-size: 26px;
-    margin: 0;
+.navbar-default.scrolled {
+    background: rgb(0, 0, 0);
 }
-header a {
-    text-decoration: none;
-}
-header nav {
-    margin: 5px 0;
-}
-header nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
-}
-header nav ul li a {
-    margin: 0 15px;
-    padding: 10px 15px;
-    font-weight: lighter;
-    font-size: 20px;
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: block;
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 4px;
+    color: white;
+    resize: vertical;
+    text-align: center;
 }
 /*Header Styling End*/
 h1,
@@ -48,11 +34,15 @@ h2,
 h3,
 h4 {
 margin-bottom: 1rem;
+color: white;
 }
 
 h1 {
-font-size: 5.4rem;
-margin-bottom: 5rem;
+font-size: 4rem;
+color: white;
+text-align: center;
+font-weight: bold;
+margin-top: 30px;
 }
 
 h1 > span {
@@ -70,6 +60,9 @@ h3 {
 font-size: 2.8rem;
 font-weight: 500;
 }
+nav ul a {
+    font-size: 1.5rem;
+}
 body {
     background-repeat: no-repeat;
     background-size: cover;
@@ -78,19 +71,7 @@ body {
     /*background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5));*/
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("./drinks.jpg");
 }
-/* UTILITIES 
-.column {
-    float: left;
-    margin: 20px
-}
 
-.left {
-width: 25%;
-}
-
-.right {
-width: 75%;
-}*/
 /* FORM */
 .form {
     margin: 0 15px;
@@ -101,6 +82,9 @@ label {
     margin-bottom: 5px;
     font-weight: bold;
     font-size: 12px;
+}
+#trivia-questions {
+    color: white;
 }
 .options {
     display: block;
@@ -120,9 +104,11 @@ display: flex;
 margin: 0 auto;
 }
 /* GAME */
+.row {
+    margin: 30px auto;
+}
 .container {
 width: 80vw;
-height: 80vh;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -151,7 +137,9 @@ justify-content: center;
 .text-center {
 text-align: center;
 }
-
+#question {
+    margin-bottom: 1rem;
+}
 .choice-container {
     display: flex;
     margin-bottom: 0.5rem;
@@ -195,19 +183,23 @@ text-align: center;
 }
 .status-text {
     text-align: center;
+    margin-top: 0;
+    font-size: 3rem;
 }
 /* BUTTONS */
 .btn {
-font-size: 1.8rem;
-padding: 1rem 0;
-width: 12rem;
-text-align: center;
-border: 0.1rem solid #ffffff;
-border-radius: 10px;
-margin: 1rem;
-text-decoration: none;
-color: #ffffff;
-background-color: rgba(204, 204, 204, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    font-size: .7rem;
+    width: 10rem;
+    border: 1px solid #ffffff;
+    border-radius: 5000px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: rgba(204, 204, 204, 0.5);
 }
 
 .btn:hover {
@@ -252,12 +244,14 @@ cursor: not-allowed;
     margin: 0 auto;
 }
 /* Style HighScores page*/
-
+#finalScore {
+    font-weight: 700;
+}
 ol {
     list-style-position: inside;
     padding: 1rem;
     margin-bottom: 1.5rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .result {
@@ -275,8 +269,17 @@ ol {
 .hide {
     display: none;
     }
-@media screen and (max-width: 600px) {
+
+/* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+@media screen and (max-width: 575px) {
     h2 {
-        font-size: 20px;
+        font-size: 22px;
+        margin: 0;
+    }
+    .choice-text {
+        padding: 1.5rem;
+    }
+    .choice-text {
+        font-size: 18px;
     }
 }

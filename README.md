@@ -1,25 +1,41 @@
 # Drink-and-Think
 
-Welcomes to Drink & Think!
+## Welcomes to Drink & Think!
 
 
-Who doesn't want to have fun making drinks from Home during the Curent State of Lockdown the Country is facing. So, why not create an application that allows the end-user to make drinks from scratch and play a game of Trivia once they have a Cold One, on hand!
+### Description
 
-Drink and Think is a user friendly application that allows the end-user to search for drink recipes and play a fun game of Trivia so, come and play!
+Drink and Think uses The Cocktail Database to provide the user with a vast array of alcoholic and non alcoholic beverages. While simultaneously allowing them to craft a custom trivia game for themselves and others using The OpenTrivia Database. 
 
-Our Web-API based application allows the user to search for items by name, ingridient or create a random drink. The Foundation CSS bring sharp and precise colors to the page. 
+### Motivation for Development
 
-The search results will provide a varaiety of drink recipes. Trivia allows the user to keep score of the game and saves high scroes. 
+During this quarantine people are unable to go to bars and be social. Many people now are using Zoom and other screencasting programs to spend time with friends and family online. While in these Zoom or Facetime calls people are looking for fun ways to be entertained together. 
+
+### User Story
+
+As a person that loves Pub Trivia, I want a way to create custom cocktails and play Pub Trivia anywhere I have access to the internet. So that I can have the Pub Trivia experience with friends and family over Zoom or other screencasting calls. 
+
 
 ```
 Logic for Drink and Think:
 
 Technology:
-1.HTML
-2.CSS
-3.Javascript
-4.JQuery
-5.Cocktaildb API https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=
+1. HTML
+2. CSS
+3. Javascript
+4. JQuery
+5. Slack
+6. Materialized CSS Framework
+7. The Cocktail Database (https://www.thecocktaildb.com/)
+8. The OpenTrivia Database (https://opentdb.com/)
+9. GitHub
+10. Gitbash
 ```
 
-![index](assets\css\main.png)
+![index](./assets/screenshots/mainpage.jpg)
+
+![drinks](./assets/screenshots/drinkpage.jpg)
+
+![trivia](./assets/screenshots/triviapage.jpg)
+
+![highscore](./assets/screenshots/highscorepage.jpg)

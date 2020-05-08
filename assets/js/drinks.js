@@ -1,3 +1,9 @@
+const numberQ = document.getElementById("trivia-questions");
+const searchTerm1  = document.getElementById("searchTerm1")
+const searchTerm2  = document.getElementById("searchTerm2")
+const searchBtn1  = document.getElementById("searchBtn1")
+const searchBtn2  = document.getElementById("searchBtn2")
+
 toTopBtn = document.getElementById("myBtn");
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
@@ -19,6 +25,15 @@ function topFunction() {
 $(window).scroll(function() {
 	$('nav').toggleClass('scrolled', $(this).scrollTop() > 50);
 });
+function preventSearch() {
+    //disable search buttons unless something is entered
+    searchTerm1.addEventListener("keyup", function() {
+    searchBtn1.disabled = !searchTerm1.value;
+    }); 
+    searchTerm2.addEventListener("keyup", function() {
+    searchBtn2.disabled = !searchTerm2.value;
+    });
+}
 $(document).ready(function() {
     //side navigation
     $('.sidenav').sidenav();
@@ -27,8 +42,10 @@ $(document).ready(function() {
         $("#searchTerm1").val("");
         $("#searchTerm2").val("");
     });
+    preventSearch()
+    
     // search when search button clicked
-    $("#searchBtn1").on("click", function() {
+    $("#searchBtn1").on("click", function() {  
         $("#searchTerm2").val("");
         $("#response-container").empty();
         const searchTerm = document.querySelector("#searchTerm1").value;;
@@ -60,6 +77,10 @@ $(document).ready(function() {
     
     function ingredientSearch(searchTerm) {
         //console.log(searchTerm)
+        //clear search value and disable button again to prevent empty searches
+        $("#searchTerm2").val("");
+        searchBtn2.disabled = !searchTerm2.value;
+
         fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i='+ searchTerm)
             
         .then((response) => {
@@ -104,7 +125,9 @@ $(document).ready(function() {
 
     //search by drink name
     function drinkSearch(searchTerm) {
-    
+        //clear search value and disable button again to prevent empty searches
+        $("#searchTerm1").val("");
+        searchBtn1.disabled = !searchTerm1.value;
         fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s='+ searchTerm)
         .then((response) => {
                 return response.json();
@@ -233,6 +256,7 @@ $(document).ready(function() {
     }   
     
 });
+
 
 /*$(document).ready(function(){
     $('.sidenav').sidenav();

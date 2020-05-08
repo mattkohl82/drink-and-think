@@ -42,6 +42,7 @@ $(window).scroll(function() {
 //$("#game-container").hide();
 //Build Game Parameters
 //get number of questions selected to put in APIUrl
+//disable play button unless number of questions is entered
 numberQ.addEventListener("keyup", function() {
     playBtn.disabled = !numberQ.value;
 });    
@@ -279,6 +280,7 @@ function endGame () {
     scorePage.classList.remove('hide');
 
 var mostRecentScore = localStorage.getItem('mostRecentScore');
+    //disable submit button to prevent empty initials (user must enter something)
     initials.addEventListener("keyup", () => {
     submitScore.disabled = !initials.value
     });
@@ -289,10 +291,7 @@ var mostRecentScore = localStorage.getItem('mostRecentScore');
             score: mostRecentScore,
             initials: initials.value
         };
-        if (initials.value === "") {
-            //submitScore.disabled
-            //window.alert("Initials cannot be blank");
-        } else {
+
             highScores.push(score);
 
             highScores.sort((a, b) => b.score - a.score); //sorts highscores in order
@@ -300,7 +299,7 @@ var mostRecentScore = localStorage.getItem('mostRecentScore');
             
             localStorage.setItem("highScores", JSON.stringify(highScores));
             window.location.assign("highscores.html")
-        }
+        //}
     });
 }
 

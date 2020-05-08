@@ -82,7 +82,9 @@ nav ul a {
     cursor: pointer;
     background-color:rgb(120, 250, 218);
 }
-
+.btn[disabled]:hover {
+    cursor: not-allowed;
+    }
 #myBtn {
     display: none;
     position: fixed;

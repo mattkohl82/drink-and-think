@@ -216,7 +216,7 @@ getQuestion = () => {
         //go to the end to have user enter initials
         displayScoreVal.textContent = totalScore;
         endGame();
-    }
+    } else {
     //display question and answer choices
     questionCounter++;
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
@@ -234,6 +234,7 @@ getQuestion = () => {
     
         availableQuestions.splice(questionIndex, 1);
         acceptingAnswers = true;
+    }   
 };
 //add 10 points if correct answer selected, remove 5 points and 15 seconds if wrong answer selected, show selected answer as red/green based on corrent/wrong  
 choices.forEach(choice => {

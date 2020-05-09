@@ -1,10 +1,9 @@
-
-//USE THIS CODE/FIX ONCE API IS UP
+//USE THIS CODE WHEN API IS RESTORED
 
 var selectedAmount;
 var selectedCategory;
 var selectedDifficulty;
-var mainPage = 'start';
+var mainPage = "start";
 var timeLeft = 120;
 var totalScore = 0;
 const timerEl = document.getElementById("countdown");
@@ -20,7 +19,7 @@ const scorePage = document.getElementById("score-container");
 const displayScoreVal = document.getElementById("total-score");
 const submitScore = document.getElementById("submit-btn");
 const initials = document.getElementById("initials");
-const initialsEntered = document.getElementById('initials-entered');
+const initialsEntered = document.getElementById("initials-entered");
 var highScores = JSON.parse(localStorage.getItem("highScores")) || []; // get the score, or the initial value if empty 
 const MAX_HIGH_SCORES = 5;
 let currentQuestion = {};
@@ -31,11 +30,11 @@ let questions = [];
 
 // mobile nav
 $(document).ready(function() {
-    $('.sidenav').sidenav();
+    $(".sidenav").sidenav();
 });
 //change navbar to solid on scroll
 $(window).scroll(function() {
-	$('nav').toggleClass('scrolled', $(this).scrollTop() > 50);
+	$("nav").toggleClass("scrolled", $(this).scrollTop() > 50);
 });
 
 
@@ -46,12 +45,12 @@ $(window).scroll(function() {
     });
     //get value of category selected to put in APIUrl
     $('[name="trivia-category"]').change(function() {
-        selectedCategory = ('&category=' + $(this).children("option:selected").val());
+        selectedCategory = ("&category=" + $(this).children("option:selected").val());
     });
     //get value of difficulty selected to put in APIUrl
     $('[name="trivia-difficulty"]').change(function(){
-        selectedDifficulty = ('&difficulty=' + $(this).children("option:selected").val());
-        $('#playBtn').prop('disabled', false);
+        selectedDifficulty = ("&difficulty=" + $(this).children("option:selected").val());
+        $("#playBtn").prop("disabled", false);
     });
 //disable play button unless number of questions is entered, category selected, AND difficulty selected
 $(function() {
@@ -100,7 +99,7 @@ function buildArray () {
         })
     // if only random category is selected
     } else if (selectedCategory === "&category=any") {
-        fetch('https://opentdb.com/api.php?amount=' + selectedAmount + selectedDifficulty + '&type=multiple')
+        fetch("https://opentdb.com/api.php?amount=" + selectedAmount + selectedDifficulty + "&type=multiple")
         .then((response) => {
             return response.json();
         })
@@ -129,7 +128,7 @@ function buildArray () {
     })
     // if only random difficulty is selected
     } else if (selectedDifficulty === "&difficulty=any") {
-        fetch('https://opentdb.com/api.php?amount=' + selectedAmount + selectedCategory + '&type=multiple')
+        fetch("https://opentdb.com/api.php?amount=" + selectedAmount + selectedCategory + "&type=multiple")
         .then((response) => {
             return response.json();
         })
@@ -158,7 +157,7 @@ function buildArray () {
         })
     //if all options selected other than random
     } else {
-        fetch('https://opentdb.com/api.php?amount=' + selectedAmount + selectedCategory + selectedDifficulty + '&type=multiple')
+        fetch("https://opentdb.com/api.php?amount=" + selectedAmount + selectedCategory + selectedDifficulty + "&type=multiple")
         .then((response) => {
             return response.json();
         })
@@ -191,7 +190,7 @@ function buildArray () {
 $("#playBtn").on("click", function(e) {
     e.preventDefault();
     document.getElementById(mainPage).style.display = "none";
-    triviaEl.classList.remove('hide');
+    triviaEl.classList.remove("hide");
     //$("#game-container").show();
     playGame();
 });
@@ -281,15 +280,15 @@ choices.forEach(choice => {
 });
 
 function endGame () {
-    gameEl.classList.add('hide');
-    scorePage.classList.remove('hide');
+    gameEl.classList.add("hide");
+    scorePage.classList.remove("hide");
 
-var mostRecentScore = localStorage.getItem('mostRecentScore');
+var mostRecentScore = localStorage.getItem("mostRecentScore");
     //disable submit button to prevent empty initials (user must enter something)
     initials.addEventListener("keyup", () => {
     submitScore.disabled = !initials.value
     });
-    submitScore.addEventListener('click', function(e) {
+    submitScore.addEventListener("click", function(e) {
         e.preventDefault();
         
         const score = {

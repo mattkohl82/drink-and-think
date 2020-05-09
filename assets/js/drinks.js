@@ -23,7 +23,7 @@ function topFunction() {
 }
 //change navbar to solid on scroll
 $(window).scroll(function() {
-	$('nav').toggleClass('scrolled', $(this).scrollTop() > 50);
+	$("nav").toggleClass("scrolled", $(this).scrollTop() > 50);
 });
 function preventSearch() {
     //disable search buttons unless something is entered
@@ -36,7 +36,7 @@ function preventSearch() {
 }
 $(document).ready(function() {
     //side navigation
-    $('.sidenav').sidenav();
+    $(".sidenav").sidenav();
     
     $("input").on("click", function() {
         $("#searchTerm1").val("");
@@ -59,14 +59,14 @@ $(document).ready(function() {
     });
 
     // search when enter key pressed
-    $("#searchTerm1").on('keyup', function(e) {
+    $("#searchTerm1").on("keyup", function(e) {
         $("#response-container").empty();
         if (e.keyCode === 13) {
         const searchTerm = document.querySelector("#searchTerm1").value;
         drinkSearch(searchTerm);
         }
     });
-    $("#searchTerm2").on('keyup', function(e) {
+    $("#searchTerm2").on("keyup", function(e) {
         $("#response-container").empty();
         if (e.keyCode === 13) {
         const searchTerm = document.querySelector("#searchTerm2").value;
@@ -81,7 +81,7 @@ $(document).ready(function() {
         $("#searchTerm2").val("");
         searchBtn2.disabled = !searchTerm2.value;
 
-        fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i='+ searchTerm)
+        fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i="+ searchTerm)
             
         .then((response) => {
             return response.json();
@@ -108,7 +108,7 @@ $(document).ready(function() {
         var contResults = $("<div>").addClass("drink-card");
         //var div = $('<div class="response-drinks">');
         var searchResult = $("<p>").addClass("drink-type").attr("id", "drink-type").text(drinkType);
-        var img =  $('<img class="imgIng">').attr("src", drinkPic).attr('id', 'drinkPic').click(function() {
+        var img =  $('<img class="imgIng">').attr("src", drinkPic).attr("id", "drinkPic").click(function() {
             var searchTerm = drinkType
             drinkSearch(searchTerm);
             //scroll back to top of page
@@ -128,7 +128,7 @@ $(document).ready(function() {
         //clear search value and disable button again to prevent empty searches
         $("#searchTerm1").val("");
         searchBtn1.disabled = !searchTerm1.value;
-        fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s='+ searchTerm)
+        fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s="+ searchTerm)
         .then((response) => {
                 return response.json();
         })
@@ -155,7 +155,7 @@ $(document).ready(function() {
                     //create object from JSON where ingredients are listed
                     var drinkName = $("<h1>").addClass("recipe-text").text(data.drinks[0].strDrink);
                     var ingredientsTitle = $("<h3>").addClass("recipe-text").text("Ingredients")
-                    var img =  $("<img>").attr("src", data.drinks[0].strDrinkThumb).attr('id', 'drinkPic')
+                    var img =  $("<img>").attr("src", data.drinks[0].strDrinkThumb).attr("id", "drinkPic")
                     var directionsTitle = $("<h3>").addClass("recipe-text").text("Directions")
                     var triviaBtn = $("<button>").addClass("btn").text("Trivia Time!")
                     
@@ -189,12 +189,9 @@ $(document).ready(function() {
                         $("#response-container-2").append(line)
                     }
                     $("#response-container-2").append(directionsTitle);
-                    var instructions = $("<p>").addClass("drink-instructions recipe-text").attr('id', 'directions').text(data.drinks[0].strInstructions);
-                    //var sepInstructions = $(instructions).text().replace(/\./g, ".<br>");
-                    //var dispInstructions = $("<p>").addClass("drink-instructions recipe-text").attr('id', 'directions').text(sepInstructions)
-                    //$("#response-container-2").append(sepInstructions);
+                    var instructions = $("<p>").addClass("drink-instructions recipe-text").attr("id", "directions").text(data.drinks[0].strInstructions);
                     $("#response-container-2").append(instructions);
-                    $(".search").append(triviaBtn).on('click', function(){
+                    $(".search").append(triviaBtn).on("click", function(){
                         window.location = "./trivia.html";    
                     });
                 });
@@ -208,7 +205,7 @@ $(document).ready(function() {
                 //create object from JSON where ingredients are listed
                 var drinkName = $("<h1>").addClass("recipe-text").text(data.drinks[0].strDrink);
                     var ingredientsTitle = $("<h3>").addClass("recipe-text").text("Ingredients")
-                    var img =  $("<img>").attr("src", data.drinks[0].strDrinkThumb).attr('id', 'drinkPic')
+                    var img =  $("<img>").attr("src", data.drinks[0].strDrinkThumb).attr("id", "drinkPic")
                     var directionsTitle = $("<h3>").addClass("recipe-text").text("Directions")
                     var triviaBtn = $("<button>").addClass("btn").text("Trivia Time!")
                             
@@ -241,12 +238,9 @@ $(document).ready(function() {
                     $("#response-container-2").append(line)
                 }
                 $("#response-container-2").append(directionsTitle);
-                var instructions = $("<p>").addClass("drink-instructions recipe-text").attr('id', 'directions').text(data.drinks[0].strInstructions);
-                //var sepInstructions = $(instructions).text().replace(/\./g, ".<br>");
-                //var dispInstructions = $("<p>").addClass("drink-instructions recipe-text").attr('id', 'directions').text(sepInstructions)
-                //$("#response-container-2").append(sepInstructions);
+                var instructions = $("<p>").addClass("drink-instructions recipe-text").attr("id", "directions").text(data.drinks[0].strInstructions);
                 $("#response-container-2").append(instructions);
-                $(".search").append(triviaBtn).on('click', function(){
+                $(".search").append(triviaBtn).on("click", function(){
                     window.location = "./trivia.html";    
                 });
                 
@@ -256,8 +250,3 @@ $(document).ready(function() {
     }   
     
 });
-
-
-/*$(document).ready(function(){
-    $('.sidenav').sidenav();
-});*/

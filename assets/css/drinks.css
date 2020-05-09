@@ -9,7 +9,6 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    /*background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5));*/
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("./drinks.jpg");
 }
 .navbar-default {
@@ -128,7 +127,6 @@ nav ul a {
     font-size: 1.5vw;
     text-decoration: bold;
     color: rgb(255, 255, 255);
-    /*text-shadow: 1.5px 1.5px #ffffff;*/
     background: rgba(0, 0, 0, 0.5);
     width: 15rem;
     margin-bottom: 1rem;

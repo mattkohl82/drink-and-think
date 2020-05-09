@@ -172,8 +172,15 @@ $(document).ready(function() {
                     for (var i = 0; i < ingredients.length; i++) {
                         var meas = measurements[i];
                         var ing = ingredients[i];
+                        if (meas === "" || meas === null || meas === undefined) {
+                            //do nothing
+                            //t his code skips over null values !== logic will not work
+                            let line = $("<li>").addClass("drink-instructions recipe-text").text(ing)
+                            $("#response-container-2").append(line)
+                        } else {
                         let line = $("<li>").addClass("drink-instructions recipe-text").text(meas + " " + ing)
                         $("#response-container-2").append(line)
+                        }
                     }
                     $("#response-container-2").append(directionsTitle);
                     var instructions = $("<p>").addClass("drink-instructions recipe-text").attr("id", "directions").text(data.drinks[0].strInstructions);
@@ -182,6 +189,7 @@ $(document).ready(function() {
                         window.location = "./trivia.html";    
                     });
                 });
+            // if valid search display recipe    
             } else {
                 drinkData = data.drinks[0]
                 var ingredients = [];
@@ -218,8 +226,16 @@ $(document).ready(function() {
                 for (var i = 0; i < ingredients.length; i++) {
                     var meas = measurements[i];
                     var ing = ingredients[i];
+                    console.log(meas)
+                    if (meas === "" || meas === null || meas === undefined) {
+                        //do nothing
+                        //t his code skips over null values !== logic will not work
+                        let line = $("<li>").addClass("drink-instructions recipe-text").text(ing)
+                        $("#response-container-2").append(line)
+                    } else {
                     let line = $("<li>").addClass("drink-instructions recipe-text").text(meas + " " + ing)
                     $("#response-container-2").append(line)
+                    }
                 }
                 $("#response-container-2").append(directionsTitle);
                 var instructions = $("<p>").addClass("drink-instructions recipe-text").attr("id", "directions").text(data.drinks[0].strInstructions);

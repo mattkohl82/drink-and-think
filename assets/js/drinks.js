@@ -174,7 +174,7 @@ $(document).ready(function() {
                         var ing = ingredients[i];
                         if (meas === "" || meas === null || meas === undefined) {
                             //do nothing
-                            //t his code skips over null values !== logic will not work
+                            //this code skips over null values !== logic will not work
                             let line = $("<li>").addClass("drink-instructions recipe-text").text(ing)
                             $("#response-container-2").append(line)
                         } else {
@@ -209,7 +209,7 @@ $(document).ready(function() {
                 Object.entries(drinkData).forEach(([key, value]) => {
                     if (value === "" || value === null) {
                         //do nothing
-                        //t his code skips over null values !== logic will not work
+                        //this code skips over null values !== logic will not work
                     } else {// if it has a value
                         // if the item is an ingredient
                         if (key.startsWith("strMeasure")) {
@@ -226,10 +226,9 @@ $(document).ready(function() {
                 for (var i = 0; i < ingredients.length; i++) {
                     var meas = measurements[i];
                     var ing = ingredients[i];
-                    console.log(meas)
                     if (meas === "" || meas === null || meas === undefined) {
                         //do nothing
-                        //t his code skips over null values !== logic will not work
+                        //this code skips over null values !== logic will not work
                         let line = $("<li>").addClass("drink-instructions recipe-text").text(ing)
                         $("#response-container-2").append(line)
                     } else {

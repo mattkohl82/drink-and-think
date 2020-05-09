@@ -37,10 +37,10 @@
                 <form action class="form" method="GET">
                     <h3>Build your game!</h3>
                     <label for="trivia-questions">Number of Questions</label>
-                    <input type="number" name="trivia-questions" id="trivia-questions" class="options" min="1" max="50" placeholder="Enter amount or use arrows">
+                    <input type="number" name="trivia-questions" id="trivia-questions" class="options" min="1" max="50" placeholder="Enter a number between 1 and 50">
                     </br>
                     <label for="trivia-category">Category</label>
-                    <select name="trivia-category" class="options">
+                    <select name="trivia-category" id="trivia-category" class="options">
                         <option value="">Please select</option>
                         <option value="any">Random</option>
                         <option value="9">General Knowledge</option>
@@ -70,7 +70,7 @@
                     </select>
                     </br>
                     <label for="trivia-difficulty">Difficulty</label>
-                    <select name="trivia-difficulty" class="options">
+                    <select name="trivia-difficulty" id="trivia-difficulty" class="options">
                         <option value="">Please select</option>
                         <option value="any">Random</option>
                         <option value="easy">Easy</option>
@@ -78,7 +78,7 @@
                         <option value="hard">Hard</option>
                     </select>
                     </br>
-                    <button id="playBtn" class="btn play flex-center" type="submit" disabled>Play!</button>
+                    <input id="playBtn" class="btn play flex-center" type="button" disabled="disabled" value="Play!"></input>
                 </form>
             </div>
             <!--Game questions/play-->

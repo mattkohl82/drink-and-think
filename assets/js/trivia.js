@@ -236,6 +236,7 @@ playGame = () => {
 
     if (timeLeft <= 0) {
             clearInterval(timeInterval);
+            displayScoreVal.textContent = totalScore;
             endGame();
         }
     }, 1000);

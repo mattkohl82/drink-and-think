@@ -210,7 +210,7 @@ playGame = () => {
         timeLeft--;
         timerEl.textContent = timeLeft;
 
-    if (timeLeft === 0) {
+    if (timeLeft <= 0) {
             clearInterval(timeInterval);
             endGame();
         }

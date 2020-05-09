@@ -25,8 +25,8 @@ function topFunction() {
 $(window).scroll(function() {
 	$("nav").toggleClass("scrolled", $(this).scrollTop() > 50);
 });
+//disable search buttons unless something is entered
 function preventSearch() {
-    //disable search buttons unless something is entered
     searchTerm1.addEventListener("keyup", function() {
     searchBtn1.disabled = !searchTerm1.value;
     }); 
@@ -37,13 +37,11 @@ function preventSearch() {
 $(document).ready(function() {
     //side navigation
     $(".sidenav").sidenav();
-    
     $("input").on("click", function() {
         $("#searchTerm1").val("");
         $("#searchTerm2").val("");
     });
     preventSearch()
-    
     // search when search button clicked
     $("#searchBtn1").on("click", function() {  
         $("#searchTerm2").val("");
@@ -57,7 +55,6 @@ $(document).ready(function() {
         const searchTerm = document.querySelector("#searchTerm2").value;;
         ingredientSearch(searchTerm);
     });
-
     // search when enter key pressed
     $("#searchTerm1").on("keyup", function(e) {
         $("#response-container").empty();
@@ -73,21 +70,17 @@ $(document).ready(function() {
         ingredientSearch(searchTerm);
         }
     });
-
-    
+    //search by ingredient
     function ingredientSearch(searchTerm) {
-        //console.log(searchTerm)
         //clear search value and disable button again to prevent empty searches
         $("#searchTerm2").val("");
         searchBtn2.disabled = !searchTerm2.value;
 
         fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i="+ searchTerm)
-            
         .then((response) => {
             return response.json();
         })
         .then((data) => {
-            //console.log(data)
             $("#response-container-2").empty();
             var drinkData = "";
             if (data.drinks.length > 1){
@@ -96,13 +89,11 @@ $(document).ready(function() {
                 for (var i = 0; i < data.drinks.length; i++) {// display each drink stored in local storage
                     var drinkType = data.drinks[i].strDrink;
                     var drinkPic = data.drinks[i].strDrinkThumb;
-                    //console.log (data.drinks[i].strDrink)
                     showDrinks(drinkType, drinkPic);
                 }
             }
         })
     }
-
     //display recipe name and picture based on ingredient search
     function showDrinks(drinkType, drinkPic) {
         var contResults = $("<div>").addClass("drink-card");
@@ -121,8 +112,6 @@ $(document).ready(function() {
         contResults.append(img, searchResult);
         $("#response-container").append(contResults);
     }
-
-
     //search by drink name
     function drinkSearch(searchTerm) {
         //clear search value and disable button again to prevent empty searches
@@ -138,12 +127,8 @@ $(document).ready(function() {
             //clears last searched recipe
             $(".search").empty();
             var drinkData = "";
-                //console.log(data)
-            //var resultsArray = [data];
-                //console.log(data.drinks)
             if (data.drinks == null) {
                 //advise user their search did not return results and offer a random drink recipe
-                //console.log("array is empty/null")
                 fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
                 .then((response) => {
                     return response.json();
@@ -195,13 +180,10 @@ $(document).ready(function() {
                         window.location = "./trivia.html";    
                     });
                 });
-                
             } else {
-                //console.log("array is not empty");
                 drinkData = data.drinks[0]
                 var ingredients = [];
                 var measurements = [];
-
                 //create object from JSON where ingredients are listed
                 var drinkName = $("<h1>").addClass("recipe-text").text(data.drinks[0].strDrink);
                     var ingredientsTitle = $("<h3>").addClass("recipe-text").text("Ingredients")
@@ -243,10 +225,7 @@ $(document).ready(function() {
                 $(".search").append(triviaBtn).on("click", function(){
                     window.location = "./trivia.html";    
                 });
-                
             }
-            
         });
     }   
-    
 });

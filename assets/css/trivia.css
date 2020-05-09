@@ -162,7 +162,7 @@ h2#question {
 }
 .choice-text {
     padding: 1.5rem;
-    padding-right: 20rem;
+    padding-right: 30rem;
     color: #000000;
 }
 .correct {
@@ -271,7 +271,15 @@ ol {
 .hide {
     display: none;
     }
-
+/* MEDIA QUERY FOR TABLETS AND SMALLER */
+@media screen and (max-width: 768px) {
+    .choice-text {
+        padding-right: 15rem;
+    }
+    h2#question {
+        font-size: 2.2rem;
+    }
+}
 /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
 @media screen and (max-width: 575px) {
     h2 {
@@ -283,8 +291,19 @@ ol {
     }
     .choice-text {
         padding: 1.5rem;
-    }
-    .choice-text {
+        padding-right: 12rem;
         font-size: 18px;
+    }
+}
+/* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+@media screen and (max-width: 414px) {
+    .choice-text {
+        padding-right: 6rem;
+    }
+}
+/* MEDIA QUERY FOR Small MOBILE PHONES AND SMALLER */
+@media screen and (max-width: 375px) {
+    .choice-text {
+        padding-right: 4rem;
     }
 }

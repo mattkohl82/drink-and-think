@@ -15,7 +15,6 @@ function scrollFunction() {
         toTopBtn.style.display = "none";
     }
 }
-
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
   document.body.scrollTop = 0; // For Safari
@@ -25,13 +24,14 @@ function topFunction() {
 $(window).scroll(function() {
 	$("nav").toggleClass("scrolled", $(this).scrollTop() > 50);
 });
+
 //disable search buttons unless something is entered
 function preventSearch() {
     searchTerm1.addEventListener("keyup", function() {
-    searchBtn1.disabled = !searchTerm1.value;
+        searchBtn1.disabled = !searchTerm1.value;
     }); 
     searchTerm2.addEventListener("keyup", function() {
-    searchBtn2.disabled = !searchTerm2.value;
+        searchBtn2.disabled = !searchTerm2.value;
     });
 }
 $(document).ready(function() {
@@ -59,15 +59,27 @@ $(document).ready(function() {
     $("#searchTerm1").on("keyup", function(e) {
         $("#response-container").empty();
         if (e.keyCode === 13) {
-        const searchTerm = document.querySelector("#searchTerm1").value;
-        drinkSearch(searchTerm);
+            e.preventDefault();
+            const searchTerm = document.querySelector("#searchTerm1").value;
+            // prevent enter button from submitting unless search value entered
+            if (searchTerm === "" || searchTerm === null || searchTerm === undefined) {
+                return false;
+            } else {
+            drinkSearch(searchTerm);
+            }
         }
     });
     $("#searchTerm2").on("keyup", function(e) {
         $("#response-container").empty();
         if (e.keyCode === 13) {
-        const searchTerm = document.querySelector("#searchTerm2").value;
-        ingredientSearch(searchTerm);
+            e.preventDefault();
+            const searchTerm = document.querySelector("#searchTerm2").value;
+            // prevent enter button from submitting unless search value entered
+            if (searchTerm === "" || searchTerm === null || searchTerm === undefined) {
+                return false;
+            } else {
+            ingredientSearch(searchTerm);
+            }
         }
     });
     // search by ingredient

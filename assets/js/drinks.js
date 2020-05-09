@@ -72,6 +72,7 @@ $(document).ready(function() {
     });
     // search by ingredient
     function ingredientSearch(searchTerm) {
+
         // clear search value and disable button again to prevent empty searches
         $("#searchTerm2").val("");
         searchBtn2.disabled = !searchTerm2.value;
@@ -79,8 +80,10 @@ $(document).ready(function() {
         fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i="+ searchTerm)
         .then((response) => {
             return response.json();
+            
         })
         .then((data) => {
+            console.log(data)
             $("#response-container-2").empty();
             var drinkData = "";
             if (data.drinks.length > 1){
@@ -104,7 +107,7 @@ $(document).ready(function() {
         var searchResult = $("<p>").addClass("drink-type").attr("id", "drink-type").text(drinkType);
         var img =  $('<img class="imgIng">').attr("src", drinkPic).attr("id", "drinkPic").click(function() {
             var searchTerm = drinkType
-            drinkSearch(searchTerm);
+            drinkSearch(searchTerm);  
             //scroll back to top of page
             document.body.scrollTop = 0; // For Safari
             document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
@@ -134,6 +137,7 @@ $(document).ready(function() {
                     return response.json();
                 })
                 .then((data) => {
+                    console.log(data)
                     drinkData = data.drinks[0]
                     var ingredients = [];
                     var measurements = [];

@@ -68,7 +68,6 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    /*background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5));*/
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("./drinks.jpg");
 }
 
@@ -140,6 +139,9 @@ text-align: center;
 #question {
     margin-bottom: 1rem;
 }
+h2#question {
+    font-size: 3.3rem;
+}
 .choice-container {
     display: flex;
     margin-bottom: 0.5rem;
@@ -160,7 +162,7 @@ text-align: center;
 }
 .choice-text {
     padding: 1.5rem;
-    padding-right: 20rem;/*make larger clickable surface*/
+    padding-right: 20rem;
     color: #000000;
 }
 .correct {
@@ -275,6 +277,9 @@ ol {
     h2 {
         font-size: 22px;
         margin: 0;
+    }
+    h2#question {
+        font-size: 22px;
     }
     .choice-text {
         padding: 1.5rem;

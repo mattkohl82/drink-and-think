@@ -7,12 +7,12 @@
         <title>Drink and Think - Trivia</title>
         <link href="https://fonts.googleapis.com/css2?family=Molle:ital@1&family=Mr+Bedfort&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!--<link type="text/css" rel="stylesheet" href="./assets/css/materialize.min.css"  media="screen,projection"/>-->
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link rel="stylesheet" href="./assets/css/trivia.css">
     </head>
     <header>
+        <!--Navbar-->
         <div class="navbar-fixed">
             <nav class="navbar-default z-depth-0">
                 <div class="nav-wrapper">
@@ -25,6 +25,7 @@
                 </div>
             </nav>
         </div>
+            <!--Mobile Navbar-->
             <ul class="sidenav" id="mobile-demo">
                 <li><a href="./drinkspage.html">Drinks</a></li>
                 <li><a href="./highscores.html">High Scores</a></li>
@@ -37,10 +38,10 @@
                 <form action class="form" method="GET">
                     <h3>Build your game!</h3>
                     <label for="trivia-questions">Number of Questions</label>
-                    <input type="number" name="trivia-questions" id="trivia-questions" class="options" min="1" max="50" placeholder="Enter amount or use arrows">
+                    <input type="number" name="trivia-questions" id="trivia-questions" class="options" min="1" max="50" placeholder="Enter a number between 1 and 50">
                     </br>
                     <label for="trivia-category">Category</label>
-                    <select name="trivia-category" class="options">
+                    <select name="trivia-category" id="trivia-category" class="options">
                         <option value="">Please select</option>
                         <option value="any">Random</option>
                         <option value="9">General Knowledge</option>
@@ -70,7 +71,7 @@
                     </select>
                     </br>
                     <label for="trivia-difficulty">Difficulty</label>
-                    <select name="trivia-difficulty" class="options">
+                    <select name="trivia-difficulty" id="trivia-difficulty" class="options">
                         <option value="">Please select</option>
                         <option value="any">Random</option>
                         <option value="easy">Easy</option>
@@ -78,7 +79,7 @@
                         <option value="hard">Hard</option>
                     </select>
                     </br>
-                    <button id="playBtn" class="btn play flex-center" type="submit" disabled>Play!</button>
+                    <input id="playBtn" class="btn play flex-center" type="button" disabled="disabled" value="Play!"></input>
                 </form>
             </div>
             <!--Game questions/play-->
@@ -95,6 +96,7 @@
                             <h1 class="status-text" id="score">0</h1>
                         </div>
                     </div>
+                    <!--Display question/choices-->
                     <div id="question-container">
                         <h2 id="question">What is the answer to this question?</h2>
                         <div class="choice-container">
@@ -115,6 +117,7 @@
                         </div>
                     </div>
                 </div>
+            <!--End of Game-->
             <div id="score-container" class="hide score-container">
                 <h1>Game Over!</h1>
                 <p class="final">Your final score is <span id="total-score">Total Score</span>.</p>
@@ -132,7 +135,6 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-    <!--<script type="text/javascript" src="./assets/js/materialize.min.js"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./assets/js/trivia.js"></script>
 </body>

@@ -70,9 +70,9 @@ $(document).ready(function() {
         ingredientSearch(searchTerm);
         }
     });
-    //search by ingredient
+    // search by ingredient
     function ingredientSearch(searchTerm) {
-        //clear search value and disable button again to prevent empty searches
+        // clear search value and disable button again to prevent empty searches
         $("#searchTerm2").val("");
         searchBtn2.disabled = !searchTerm2.value;
 
@@ -85,7 +85,7 @@ $(document).ready(function() {
             var drinkData = "";
             if (data.drinks.length > 1){
                 drinkData = data.drinks[i]
-                //show the user all of the drinks
+                // show the user all of the drinks
                 for (var i = 0; i < data.drinks.length; i++) {// display each drink stored in local storage
                     var drinkType = data.drinks[i].strDrink;
                     var drinkPic = data.drinks[i].strDrinkThumb;
@@ -93,12 +93,12 @@ $(document).ready(function() {
                 }
             }
         })
-        //advise user their search did not return results and offer a random drink recipe
+        // advise user their search did not return results and offer a random drink recipe
         .catch((error) => {
             drinkSearch(searchTerm);
         });
     }
-    //display recipe name and picture based on ingredient search
+    // display recipe name and picture based on ingredient search
     function showDrinks(drinkType, drinkPic) {
         var contResults = $("<div>").addClass("drink-card");
         var searchResult = $("<p>").addClass("drink-type").attr("id", "drink-type").text(drinkType);
@@ -112,23 +112,23 @@ $(document).ready(function() {
         contResults.append(img, searchResult);
         $("#response-container").append(contResults);
     }
-    //search by drink name
+    // search by drink name
     function drinkSearch(searchTerm) {
-        //clear search value and disable button again to prevent empty searches
+        // clear search value and disable button again to prevent empty searches
         $("#searchTerm1").val("");
         searchBtn1.disabled = !searchTerm1.value;
         fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s="+ searchTerm)
         .then((response) => {
-                return response.json();
+            return response.json();
         })
         .then((data) => {
             $("#response-container").empty();
             $("#response-container-2").empty();
-            //clears last searched recipe
+            // clears last searched recipe
             $(".search").empty();
             var drinkData = "";
             if (data.drinks == null) {
-                //advise user their search did not return results and offer a random drink recipe
+                // advise user their search did not return results and offer a random drink recipe
                 fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
                 .then((response) => {
                     return response.json();
@@ -137,7 +137,7 @@ $(document).ready(function() {
                     drinkData = data.drinks[0]
                     var ingredients = [];
                     var measurements = [];
-                    //create object from JSON where ingredients are listed
+                    // create object from JSON where ingredients are listed
                     var drinkName = $("<h1>").addClass("recipe-text").text(data.drinks[0].strDrink);
                     var ingredientsTitle = $("<h3>").addClass("recipe-text").text("Ingredients")
                     var img =  $("<img>").attr("src", data.drinks[0].strDrinkThumb).attr("id", "drinkPic")
@@ -149,13 +149,13 @@ $(document).ready(function() {
                     $("#response-container-2").append(img);
                     $("#response-container-2").append(ingredientsTitle);
                     
-                    //iterate over each key/value in dictionary
+                    // iterate over each key/value in dictionary
                     Object.entries(drinkData).forEach(([key, value]) => {
                         if (value === "" || value === null) {
                             //do nothing
-                            //this code skips over null values !== logic will not work
-                        } else {//if it has a value
-                            //if the item is an ingredient
+                            // this code skips over null values !== logic will not work
+                        } else {// if it has a value
+                            // if the item is an ingredient
                             if (key.startsWith("strMeasure")) {
                                     // add measurement to array
                                     measurements.push(value)
@@ -184,24 +184,24 @@ $(document).ready(function() {
                 drinkData = data.drinks[0]
                 var ingredients = [];
                 var measurements = [];
-                //create object from JSON where ingredients are listed
+                // create object from JSON where ingredients are listed
                 var drinkName = $("<h1>").addClass("recipe-text").text(data.drinks[0].strDrink);
                     var ingredientsTitle = $("<h3>").addClass("recipe-text").text("Ingredients")
                     var img =  $("<img>").attr("src", data.drinks[0].strDrinkThumb).attr("id", "drinkPic")
                     var directionsTitle = $("<h3>").addClass("recipe-text").text("Directions")
                     var triviaBtn = $("<button>").addClass("btn").text("Trivia Time!")
                             
-                $("#response-container-2").append(drinkName);
-                $("#response-container-2").append(img);
-                $("#response-container-2").append(ingredientsTitle);
-                
+                    $("#response-container-2").append(drinkName);
+                    $("#response-container-2").append(img);
+                    $("#response-container-2").append(ingredientsTitle);
+                    
                 //iterate over each key/value in dictionary
                 Object.entries(drinkData).forEach(([key, value]) => {
                     if (value === "" || value === null) {
                         //do nothing
-                        //this code skips over null values !== logic will not work
-                    } else {//if it has a value
-                        //if the item is an ingredient
+                        //t his code skips over null values !== logic will not work
+                    } else {// if it has a value
+                        // if the item is an ingredient
                         if (key.startsWith("strMeasure")) {
                                 // add measurement to array
                                 measurements.push(value)
@@ -212,7 +212,7 @@ $(document).ready(function() {
                         }
                     }
                 });
-                // display list with measurement and  ingredient 
+                // display list with measurement and ingredients
                 for (var i = 0; i < ingredients.length; i++) {
                     var meas = measurements[i];
                     var ing = ingredients[i];

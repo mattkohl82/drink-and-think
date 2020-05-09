@@ -213,6 +213,7 @@ playGame = () => {
 
     if (timeLeft === 0) {
             clearInterval(timeInterval);
+            endGame();
         }
     }, 1000);
 getQuestion();

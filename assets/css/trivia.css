@@ -140,6 +140,9 @@ text-align: center;
 #question {
     margin-bottom: 1rem;
 }
+h2#question {
+    font-size: 3.3rem;
+}
 .choice-container {
     display: flex;
     margin-bottom: 0.5rem;
@@ -275,6 +278,9 @@ ol {
     h2 {
         font-size: 22px;
         margin: 0;
+    }
+    h2#question {
+        font-size: 22px;
     }
     .choice-text {
         padding: 1.5rem;

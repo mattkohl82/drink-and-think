@@ -83,7 +83,6 @@ $(document).ready(function() {
             
         })
         .then((data) => {
-            console.log(data)
             $("#response-container-2").empty();
             var drinkData = "";
             if (data.drinks.length > 1){
@@ -137,7 +136,6 @@ $(document).ready(function() {
                     return response.json();
                 })
                 .then((data) => {
-                    console.log(data)
                     drinkData = data.drinks[0]
                     var ingredients = [];
                     var measurements = [];

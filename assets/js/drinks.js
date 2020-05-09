@@ -93,11 +93,14 @@ $(document).ready(function() {
                 }
             }
         })
+        //advise user their search did not return results and offer a random drink recipe
+        .catch((error) => {
+            drinkSearch(searchTerm);
+        });
     }
     //display recipe name and picture based on ingredient search
     function showDrinks(drinkType, drinkPic) {
         var contResults = $("<div>").addClass("drink-card");
-        //var div = $('<div class="response-drinks">');
         var searchResult = $("<p>").addClass("drink-type").attr("id", "drink-type").text(drinkType);
         var img =  $('<img class="imgIng">').attr("src", drinkPic).attr("id", "drinkPic").click(function() {
             var searchTerm = drinkType
@@ -105,9 +108,6 @@ $(document).ready(function() {
             //scroll back to top of page
             document.body.scrollTop = 0; // For Safari
             document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-            //$("#response-container").append(div);
-            //$("#response-drinks").append(searchResult, img);
-            
         });
         contResults.append(img, searchResult);
         $("#response-container").append(contResults);

@@ -60,7 +60,7 @@ $(function() {
             $("#playBtn").prop("disabled", true);
     } else {
         buildArray();
-        $("#playBtn").prop("disabled", false);
+        //$("#playBtn").prop("disabled", false);
     }
     });
 });
@@ -71,7 +71,13 @@ function buildArray () {
     if (selectedCategory === "&category=any" && selectedDifficulty === "&difficulty=any") {
         fetch("https://opentdb.com/api.php?amount=" + selectedAmount + "&type=multiple")
         .then((response) => {
-            return response.json()
+            if (!response.ok) {
+            //disable play button unless array builds for game
+            $("#playBtn").prop("disabled", true);
+            } else {
+                $("#playBtn").prop("disabled", false);
+                return response.json()
+            }
         })
         .then((data) => {
             //convert questions from array to new form
@@ -101,9 +107,15 @@ function buildArray () {
     } else if (selectedCategory === "&category=any") {
         fetch("https://opentdb.com/api.php?amount=" + selectedAmount + selectedDifficulty + "&type=multiple")
         .then((response) => {
-            return response.json();
+            if (!response.ok) {
+            //disable play button unless array builds for game
+            $("#playBtn").prop("disabled", true);
+            } else {
+                $("#playBtn").prop("disabled", false);
+                return response.json()
+            }
         })
-        .then((data) => {
+        .then((data) => {;
             questions = data.results.map(currQuestion => {
                 //get each individual question change to format needed to display in game
                 const formattedQuestion = {
@@ -130,7 +142,13 @@ function buildArray () {
     } else if (selectedDifficulty === "&difficulty=any") {
         fetch("https://opentdb.com/api.php?amount=" + selectedAmount + selectedCategory + "&type=multiple")
         .then((response) => {
-            return response.json();
+            //disable play button unless array builds for game
+            if (!response.ok) {
+            $("#playBtn").prop("disabled", true);
+            } else {
+                $("#playBtn").prop("disabled", false);
+                return response.json()
+            }
         })
         .then((data) => {
             questions = data.results.map(currQuestion => {
@@ -159,7 +177,13 @@ function buildArray () {
     } else {
         fetch("https://opentdb.com/api.php?amount=" + selectedAmount + selectedCategory + selectedDifficulty + "&type=multiple")
         .then((response) => {
-            return response.json();
+            //disable play button unless array builds for game
+            if (!response.ok) {
+            $("#playBtn").prop("disabled", true);
+            } else {
+                $("#playBtn").prop("disabled", false);
+                return response.json()
+            }
         })
         .then((data) => {
             questions = data.results.map(currQuestion => {
@@ -210,8 +234,9 @@ playGame = () => {
         timeLeft--;
         timerEl.textContent = timeLeft;
 
-    if (timeLeft === 0) {
+    if (timeLeft <= 0) {
             clearInterval(timeInterval);
+            displayScoreVal.textContent = totalScore;
             endGame();
         }
     }, 1000);

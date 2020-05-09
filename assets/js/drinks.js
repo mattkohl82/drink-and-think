@@ -72,6 +72,7 @@ $(document).ready(function() {
     });
     // search by ingredient
     function ingredientSearch(searchTerm) {
+
         // clear search value and disable button again to prevent empty searches
         $("#searchTerm2").val("");
         searchBtn2.disabled = !searchTerm2.value;
@@ -79,6 +80,7 @@ $(document).ready(function() {
         fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i="+ searchTerm)
         .then((response) => {
             return response.json();
+            
         })
         .then((data) => {
             $("#response-container-2").empty();
@@ -104,7 +106,7 @@ $(document).ready(function() {
         var searchResult = $("<p>").addClass("drink-type").attr("id", "drink-type").text(drinkType);
         var img =  $('<img class="imgIng">').attr("src", drinkPic).attr("id", "drinkPic").click(function() {
             var searchTerm = drinkType
-            drinkSearch(searchTerm);
+            drinkSearch(searchTerm);  
             //scroll back to top of page
             document.body.scrollTop = 0; // For Safari
             document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
@@ -170,8 +172,15 @@ $(document).ready(function() {
                     for (var i = 0; i < ingredients.length; i++) {
                         var meas = measurements[i];
                         var ing = ingredients[i];
+                        if (meas === "" || meas === null || meas === undefined) {
+                            //do nothing
+                            //this code skips over null values !== logic will not work
+                            let line = $("<li>").addClass("drink-instructions recipe-text").text(ing)
+                            $("#response-container-2").append(line)
+                        } else {
                         let line = $("<li>").addClass("drink-instructions recipe-text").text(meas + " " + ing)
                         $("#response-container-2").append(line)
+                        }
                     }
                     $("#response-container-2").append(directionsTitle);
                     var instructions = $("<p>").addClass("drink-instructions recipe-text").attr("id", "directions").text(data.drinks[0].strInstructions);
@@ -180,6 +189,7 @@ $(document).ready(function() {
                         window.location = "./trivia.html";    
                     });
                 });
+            // if valid search display recipe    
             } else {
                 drinkData = data.drinks[0]
                 var ingredients = [];
@@ -199,7 +209,7 @@ $(document).ready(function() {
                 Object.entries(drinkData).forEach(([key, value]) => {
                     if (value === "" || value === null) {
                         //do nothing
-                        //t his code skips over null values !== logic will not work
+                        //this code skips over null values !== logic will not work
                     } else {// if it has a value
                         // if the item is an ingredient
                         if (key.startsWith("strMeasure")) {
@@ -216,8 +226,15 @@ $(document).ready(function() {
                 for (var i = 0; i < ingredients.length; i++) {
                     var meas = measurements[i];
                     var ing = ingredients[i];
+                    if (meas === "" || meas === null || meas === undefined) {
+                        //do nothing
+                        //this code skips over null values !== logic will not work
+                        let line = $("<li>").addClass("drink-instructions recipe-text").text(ing)
+                        $("#response-container-2").append(line)
+                    } else {
                     let line = $("<li>").addClass("drink-instructions recipe-text").text(meas + " " + ing)
                     $("#response-container-2").append(line)
+                    }
                 }
                 $("#response-container-2").append(directionsTitle);
                 var instructions = $("<p>").addClass("drink-instructions recipe-text").attr("id", "directions").text(data.drinks[0].strInstructions);

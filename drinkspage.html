@@ -6,13 +6,12 @@
         <title>Drink and Think - Drink</title>
         <link href="https://fonts.googleapis.com/css2?family=Molle:ital@1&family=Mr+Bedfort&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!--<link type="text/css" rel="stylesheet" href=".assets/css/materialize.min.css"  media="screen,projection"/>-->
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link rel="stylesheet" href="./assets/css/drinks.css" />
     </head>
     <header>
-
+        <!--Navbar-->
         <div class="navbar-fixed">
             <nav class="navbar-default z-depth-0">
                 <div class="nav-wrapper">
@@ -25,6 +24,7 @@
                 </div>
             </nav>
         </div>
+            <!--Mobile Navbar-->
             <ul class="sidenav" id="mobile-demo">
                 <li><a href="./trivia.html">Trivia</a></li>
                 <li><a href="./highscores.html">High Scores</a></li>
@@ -32,27 +32,26 @@
     </header>
 
     <body>
+        <!--Search drink recipes-->
         <div class="content">
             <div class="search1">
                 <input type="text" id="searchTerm1" class="options" placeholder="Enter Drink">
-                <button id="searchBtn1" class="btn">Search</button>
+                <button id="searchBtn1" class="btn" disabled>Search</button>
             </div>
             <div class="search2">
                 <input type="text" id="searchTerm2" class="options" placeholder="Enter Ingredient">
-                <button id="searchBtn2" class="btn">Search</button>
+                <button id="searchBtn2" class="btn" disabled>Search</button>
             </div>
         </div>
+        <!--Display search results-->
         <div class="response" id="response-container"></div>
         <div class="response" id="response-container-2"></div>
         <div class="content">
-            <div class="search">
-                <!-- <button class="btn grey" onclick="location.href='./trivia.html';">Trivia Time!</button>  -->      
-            </div>
+            <div class="search"></div>
         </div>
         <!--button appears on scroll to allow user to go back to top of page--> 
         <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-        <!--<script type="text/javascript" src="./assets/js/materialize.min.js"></script>-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script src="./assets/js/drinks.js"></script>
     </body>

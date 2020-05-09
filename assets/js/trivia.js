@@ -1,10 +1,9 @@
-
-//USE THIS CODE/FIX ONCE API IS UP
+//USE THIS CODE WHEN API IS RESTORED
 
 var selectedAmount;
 var selectedCategory;
 var selectedDifficulty;
-var mainPage = 'start';
+var mainPage = "start";
 var timeLeft = 120;
 var totalScore = 0;
 const timerEl = document.getElementById("countdown");
@@ -20,7 +19,7 @@ const scorePage = document.getElementById("score-container");
 const displayScoreVal = document.getElementById("total-score");
 const submitScore = document.getElementById("submit-btn");
 const initials = document.getElementById("initials");
-const initialsEntered = document.getElementById('initials-entered');
+const initialsEntered = document.getElementById("initials-entered");
 var highScores = JSON.parse(localStorage.getItem("highScores")) || []; // get the score, or the initial value if empty 
 const MAX_HIGH_SCORES = 5;
 let currentQuestion = {};
@@ -31,40 +30,56 @@ let questions = [];
 
 // mobile nav
 $(document).ready(function() {
-    $('.sidenav').sidenav();
+    $(".sidenav").sidenav();
 });
 //change navbar to solid on scroll
 $(window).scroll(function() {
-	$('nav').toggleClass('scrolled', $(this).scrollTop() > 50);
+	$("nav").toggleClass("scrolled", $(this).scrollTop() > 50);
 });
 
 
-//$("#game-container").hide();
 //Build Game Parameters
-//get number of questions selected to put in APIUrl
-numberQ.addEventListener("keyup", function() {
-    playBtn.disabled = !numberQ.value;
-});    
-$("#trivia-questions").on("input", function() {
-    selectedAmount = $(this).val();
+    //get number of questions selected to put in APIUrl  
+    $("#trivia-questions").on("input", function() {
+        selectedAmount = $(this).val();
+    });
+    //get value of category selected to put in APIUrl
+    $('[name="trivia-category"]').change(function() {
+        selectedCategory = ("&category=" + $(this).children("option:selected").val());
+    });
+    //get value of difficulty selected to put in APIUrl
+    $('[name="trivia-difficulty"]').change(function(){
+        selectedDifficulty = ("&difficulty=" + $(this).children("option:selected").val());
+        $("#playBtn").prop("disabled", false);
+    });
+//disable play button unless number of questions is entered, category selected, AND difficulty selected
+$(function() {
+    
+    $(".options").on("keyup change", function() {
+        if ($("#trivia-questions").val() == "" || $("#trivia-category").val() == "" || $("#trivia-difficulty").val() == "") {
+            $("#playBtn").prop("disabled", true);
+    } else {
+        buildArray();
+        //$("#playBtn").prop("disabled", false);
+    }
+    });
 });
-//get value of category selected to put in APIUrl
-$('[name="trivia-category"]').change(function() {
-    selectedCategory = ('&category=' + $(this).children("option:selected").val());
-});
-//get value of difficulty selected to put in APIUrl
-$('[name="trivia-difficulty"]').change(function(){
-    selectedDifficulty = ('&difficulty=' + $(this).children("option:selected").val());
-//});
+
+function buildArray () {
     //Generate API Key based on options user selects
     //if both random category and random is selected: each question will be a random category/level of difficulty
     if (selectedCategory === "&category=any" && selectedDifficulty === "&difficulty=any") {
-        fetch('https://opentdb.com/api.php?amount=' + selectedAmount + '&type=multiple')
+        fetch("https://opentdb.com/api.php?amount=" + selectedAmount + "&type=multiple")
         .then((response) => {
-            return response.json()
+            if (!response.ok) {
+            //disable play button unless array builds for game
+            $("#playBtn").prop("disabled", true);
+            } else {
+                $("#playBtn").prop("disabled", false);
+                return response.json()
+            }
         })
         .then((data) => {
-            console.log(data.results);
             //convert questions from array to new form
             questions = data.results.map(currQuestion => {
                 //get each individual question change to format needed to display in game
@@ -90,12 +105,17 @@ $('[name="trivia-difficulty"]').change(function(){
         })
     // if only random category is selected
     } else if (selectedCategory === "&category=any") {
-        fetch('https://opentdb.com/api.php?amount=' + selectedAmount + selectedDifficulty + '&type=multiple')
+        fetch("https://opentdb.com/api.php?amount=" + selectedAmount + selectedDifficulty + "&type=multiple")
         .then((response) => {
-            return response.json();
+            if (!response.ok) {
+            //disable play button unless array builds for game
+            $("#playBtn").prop("disabled", true);
+            } else {
+                $("#playBtn").prop("disabled", false);
+                return response.json()
+            }
         })
-        .then((data) => {
-            //console.log(data.results);
+        .then((data) => {;
             questions = data.results.map(currQuestion => {
                 //get each individual question change to format needed to display in game
                 const formattedQuestion = {
@@ -120,12 +140,17 @@ $('[name="trivia-difficulty"]').change(function(){
     })
     // if only random difficulty is selected
     } else if (selectedDifficulty === "&difficulty=any") {
-        fetch('https://opentdb.com/api.php?amount=' + selectedAmount + selectedCategory + '&type=multiple')
+        fetch("https://opentdb.com/api.php?amount=" + selectedAmount + selectedCategory + "&type=multiple")
         .then((response) => {
-            return response.json();
+            //disable play button unless array builds for game
+            if (!response.ok) {
+            $("#playBtn").prop("disabled", true);
+            } else {
+                $("#playBtn").prop("disabled", false);
+                return response.json()
+            }
         })
         .then((data) => {
-            //console.log(data.results);
             questions = data.results.map(currQuestion => {
                 //get each individual question change to format needed to display in game
                 const formattedQuestion = {
@@ -150,12 +175,17 @@ $('[name="trivia-difficulty"]').change(function(){
         })
     //if all options selected other than random
     } else {
-        fetch('https://opentdb.com/api.php?amount=' + selectedAmount + selectedCategory + selectedDifficulty + '&type=multiple')
+        fetch("https://opentdb.com/api.php?amount=" + selectedAmount + selectedCategory + selectedDifficulty + "&type=multiple")
         .then((response) => {
-            return response.json();
+            //disable play button unless array builds for game
+            if (!response.ok) {
+            $("#playBtn").prop("disabled", true);
+            } else {
+                $("#playBtn").prop("disabled", false);
+                return response.json()
+            }
         })
         .then((data) => {
-            //console.log(data.results);
             questions = data.results.map(currQuestion => {
                 //get each individual question change to format needed to display in game
                 const formattedQuestion = {
@@ -178,12 +208,13 @@ $('[name="trivia-difficulty"]').change(function(){
             });
         })
     }
-});
+//});
+}
 // start game when play button is clicked
 $("#playBtn").on("click", function(e) {
     e.preventDefault();
     document.getElementById(mainPage).style.display = "none";
-    triviaEl.classList.remove('hide');
+    triviaEl.classList.remove("hide");
     //$("#game-container").show();
     playGame();
 });
@@ -203,8 +234,10 @@ playGame = () => {
         timeLeft--;
         timerEl.textContent = timeLeft;
 
-    if (timeLeft === 0) {
+    if (timeLeft <= 0) {
             clearInterval(timeInterval);
+            displayScoreVal.textContent = totalScore;
+            endGame();
         }
     }, 1000);
 getQuestion();
@@ -216,7 +249,7 @@ getQuestion = () => {
         //go to the end to have user enter initials
         displayScoreVal.textContent = totalScore;
         endGame();
-    }
+    } else {
     //display question and answer choices
     questionCounter++;
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
@@ -234,6 +267,7 @@ getQuestion = () => {
     
         availableQuestions.splice(questionIndex, 1);
         acceptingAnswers = true;
+    }   
 };
 //add 10 points if correct answer selected, remove 5 points and 15 seconds if wrong answer selected, show selected answer as red/green based on corrent/wrong  
 choices.forEach(choice => {
@@ -249,9 +283,7 @@ choices.forEach(choice => {
     
         if (answerStatus === "correct") {
             totalScore += 10;
-            //console.log("correct answer selcted, total score "+ totalScore);
         } else {
-            //console.log("wrong answer selcted, total score "+ totalScore);
             if(timeLeft >= 15) {
                 timeLeft -= 15;
             } else {
@@ -259,7 +291,6 @@ choices.forEach(choice => {
             }
             if(totalScore >= 5) {
                 totalScore -= 5;
-                //console.log("total score "+ totalScore);
             } else {
                 totalScore = 0;
             }
@@ -274,24 +305,22 @@ choices.forEach(choice => {
 });
 
 function endGame () {
-    gameEl.classList.add('hide');
-    scorePage.classList.remove('hide');
+    gameEl.classList.add("hide");
+    scorePage.classList.remove("hide");
 
-var mostRecentScore = localStorage.getItem('mostRecentScore');
+var mostRecentScore = localStorage.getItem("mostRecentScore");
+    //disable submit button to prevent empty initials (user must enter something)
     initials.addEventListener("keyup", () => {
     submitScore.disabled = !initials.value
     });
-    submitScore.addEventListener('click', function(e) {
+    submitScore.addEventListener("click", function(e) {
         e.preventDefault();
         
         const score = {
             score: mostRecentScore,
             initials: initials.value
         };
-        if (initials.value === "") {
-            //submitScore.disabled
-            //window.alert("Initials cannot be blank");
-        } else {
+
             highScores.push(score);
 
             highScores.sort((a, b) => b.score - a.score); //sorts highscores in order
@@ -299,7 +328,7 @@ var mostRecentScore = localStorage.getItem('mostRecentScore');
             
             localStorage.setItem("highScores", JSON.stringify(highScores));
             window.location.assign("highscores.html")
-        }
+        //}
     });
 }
 
@@ -411,9 +440,7 @@ choices.forEach(choice => {
     
         if (answerStatus === "correct") {
             totalScore += 10;
-            //console.log("correct answer selcted, total score "+ totalScore);
         } else {
-            //console.log("wrong answer selcted, total score "+ totalScore);
             if(timeLeft >= 15) {
                 timeLeft -= 15;
             } else {
@@ -421,7 +448,6 @@ choices.forEach(choice => {
             }
             if(totalScore >= 5) {
                 totalScore -= 5;
-                //console.log("total score "+ totalScore);
             } else {
                 totalScore = 0;
             }

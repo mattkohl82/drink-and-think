@@ -1,3 +1,9 @@
+const numberQ = document.getElementById("trivia-questions");
+const searchTerm1  = document.getElementById("searchTerm1")
+const searchTerm2  = document.getElementById("searchTerm2")
+const searchBtn1  = document.getElementById("searchBtn1")
+const searchBtn2  = document.getElementById("searchBtn2")
+
 toTopBtn = document.getElementById("myBtn");
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
@@ -17,18 +23,27 @@ function topFunction() {
 }
 //change navbar to solid on scroll
 $(window).scroll(function() {
-	$('nav').toggleClass('scrolled', $(this).scrollTop() > 50);
+	$("nav").toggleClass("scrolled", $(this).scrollTop() > 50);
 });
+//disable search buttons unless something is entered
+function preventSearch() {
+    searchTerm1.addEventListener("keyup", function() {
+    searchBtn1.disabled = !searchTerm1.value;
+    }); 
+    searchTerm2.addEventListener("keyup", function() {
+    searchBtn2.disabled = !searchTerm2.value;
+    });
+}
 $(document).ready(function() {
     //side navigation
-    $('.sidenav').sidenav();
-    
+    $(".sidenav").sidenav();
     $("input").on("click", function() {
         $("#searchTerm1").val("");
         $("#searchTerm2").val("");
     });
+    preventSearch()
     // search when search button clicked
-    $("#searchBtn1").on("click", function() {
+    $("#searchBtn1").on("click", function() {  
         $("#searchTerm2").val("");
         $("#response-container").empty();
         const searchTerm = document.querySelector("#searchTerm1").value;;
@@ -40,87 +55,82 @@ $(document).ready(function() {
         const searchTerm = document.querySelector("#searchTerm2").value;;
         ingredientSearch(searchTerm);
     });
-
     // search when enter key pressed
-    $("#searchTerm1").on('keyup', function(e) {
+    $("#searchTerm1").on("keyup", function(e) {
         $("#response-container").empty();
         if (e.keyCode === 13) {
         const searchTerm = document.querySelector("#searchTerm1").value;
         drinkSearch(searchTerm);
         }
     });
-    $("#searchTerm2").on('keyup', function(e) {
+    $("#searchTerm2").on("keyup", function(e) {
         $("#response-container").empty();
         if (e.keyCode === 13) {
         const searchTerm = document.querySelector("#searchTerm2").value;
         ingredientSearch(searchTerm);
         }
     });
-
-    
+    // search by ingredient
     function ingredientSearch(searchTerm) {
-        //console.log(searchTerm)
-        fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i='+ searchTerm)
-            
+
+        // clear search value and disable button again to prevent empty searches
+        $("#searchTerm2").val("");
+        searchBtn2.disabled = !searchTerm2.value;
+
+        fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i="+ searchTerm)
         .then((response) => {
             return response.json();
+            
         })
         .then((data) => {
-            //console.log(data)
             $("#response-container-2").empty();
             var drinkData = "";
             if (data.drinks.length > 1){
                 drinkData = data.drinks[i]
-                //show the user all of the drinks
+                // show the user all of the drinks
                 for (var i = 0; i < data.drinks.length; i++) {// display each drink stored in local storage
                     var drinkType = data.drinks[i].strDrink;
                     var drinkPic = data.drinks[i].strDrinkThumb;
-                    //console.log (data.drinks[i].strDrink)
                     showDrinks(drinkType, drinkPic);
                 }
             }
         })
+        // advise user their search did not return results and offer a random drink recipe
+        .catch((error) => {
+            drinkSearch(searchTerm);
+        });
     }
-
-    //display recipe name and picture based on ingredient search
+    // display recipe name and picture based on ingredient search
     function showDrinks(drinkType, drinkPic) {
         var contResults = $("<div>").addClass("drink-card");
-        //var div = $('<div class="response-drinks">');
         var searchResult = $("<p>").addClass("drink-type").attr("id", "drink-type").text(drinkType);
-        var img =  $('<img class="imgIng">').attr("src", drinkPic).attr('id', 'drinkPic').click(function() {
+        var img =  $('<img class="imgIng">').attr("src", drinkPic).attr("id", "drinkPic").click(function() {
             var searchTerm = drinkType
-            drinkSearch(searchTerm);
+            drinkSearch(searchTerm);  
             //scroll back to top of page
             document.body.scrollTop = 0; // For Safari
             document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-            //$("#response-container").append(div);
-            //$("#response-drinks").append(searchResult, img);
-            
         });
         contResults.append(img, searchResult);
         $("#response-container").append(contResults);
     }
-
-
-    //search by drink name
+    // search by drink name
     function drinkSearch(searchTerm) {
-    
-        fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s='+ searchTerm)
+        // clear search value and disable button again to prevent empty searches
+        $("#searchTerm1").val("");
+        searchBtn1.disabled = !searchTerm1.value;
+        fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s="+ searchTerm)
         .then((response) => {
-                return response.json();
+            return response.json();
         })
         .then((data) => {
             $("#response-container").empty();
             $("#response-container-2").empty();
-            //clears last searched recipe
+            // clears last searched recipe
             $(".search").empty();
             var drinkData = "";
-                //console.log(data)
-            //var resultsArray = [data];
-                //console.log(data.drinks)
             if (data.drinks == null) {
-                //advise user their search did not return results and offer a random drink recipe
-                //console.log("array is empty/null")
+                // advise user their search did not return results and offer a random drink recipe
                 fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
                 .then((response) => {
                     return response.json();
@@ -129,10 +139,10 @@ $(document).ready(function() {
                     drinkData = data.drinks[0]
                     var ingredients = [];
                     var measurements = [];
-                    //create object from JSON where ingredients are listed
+                    // create object from JSON where ingredients are listed
                     var drinkName = $("<h1>").addClass("recipe-text").text(data.drinks[0].strDrink);
                     var ingredientsTitle = $("<h3>").addClass("recipe-text").text("Ingredients")
-                    var img =  $("<img>").attr("src", data.drinks[0].strDrinkThumb).attr('id', 'drinkPic')
+                    var img =  $("<img>").attr("src", data.drinks[0].strDrinkThumb).attr("id", "drinkPic")
                     var directionsTitle = $("<h3>").addClass("recipe-text").text("Directions")
                     var triviaBtn = $("<button>").addClass("btn").text("Trivia Time!")
                     
@@ -141,13 +151,13 @@ $(document).ready(function() {
                     $("#response-container-2").append(img);
                     $("#response-container-2").append(ingredientsTitle);
                     
-                    //iterate over each key/value in dictionary
+                    // iterate over each key/value in dictionary
                     Object.entries(drinkData).forEach(([key, value]) => {
                         if (value === "" || value === null) {
                             //do nothing
-                            //this code skips over null values !== logic will not work
-                        } else {//if it has a value
-                            //if the item is an ingredient
+                            // this code skips over null values !== logic will not work
+                        } else {// if it has a value
+                            // if the item is an ingredient
                             if (key.startsWith("strMeasure")) {
                                     // add measurement to array
                                     measurements.push(value)
@@ -162,44 +172,46 @@ $(document).ready(function() {
                     for (var i = 0; i < ingredients.length; i++) {
                         var meas = measurements[i];
                         var ing = ingredients[i];
+                        if (meas === "" || meas === null || meas === undefined) {
+                            //do nothing
+                            //this code skips over null values !== logic will not work
+                            let line = $("<li>").addClass("drink-instructions recipe-text").text(ing)
+                            $("#response-container-2").append(line)
+                        } else {
                         let line = $("<li>").addClass("drink-instructions recipe-text").text(meas + " " + ing)
                         $("#response-container-2").append(line)
+                        }
                     }
                     $("#response-container-2").append(directionsTitle);
-                    var instructions = $("<p>").addClass("drink-instructions recipe-text").attr('id', 'directions').text(data.drinks[0].strInstructions);
-                    //var sepInstructions = $(instructions).text().replace(/\./g, ".<br>");
-                    //var dispInstructions = $("<p>").addClass("drink-instructions recipe-text").attr('id', 'directions').text(sepInstructions)
-                    //$("#response-container-2").append(sepInstructions);
+                    var instructions = $("<p>").addClass("drink-instructions recipe-text").attr("id", "directions").text(data.drinks[0].strInstructions);
                     $("#response-container-2").append(instructions);
-                    $(".search").append(triviaBtn).on('click', function(){
+                    $(".search").append(triviaBtn).on("click", function(){
                         window.location = "./trivia.html";    
                     });
                 });
-                
+            // if valid search display recipe    
             } else {
-                //console.log("array is not empty");
                 drinkData = data.drinks[0]
                 var ingredients = [];
                 var measurements = [];
-
-                //create object from JSON where ingredients are listed
+                // create object from JSON where ingredients are listed
                 var drinkName = $("<h1>").addClass("recipe-text").text(data.drinks[0].strDrink);
                     var ingredientsTitle = $("<h3>").addClass("recipe-text").text("Ingredients")
-                    var img =  $("<img>").attr("src", data.drinks[0].strDrinkThumb).attr('id', 'drinkPic')
+                    var img =  $("<img>").attr("src", data.drinks[0].strDrinkThumb).attr("id", "drinkPic")
                     var directionsTitle = $("<h3>").addClass("recipe-text").text("Directions")
                     var triviaBtn = $("<button>").addClass("btn").text("Trivia Time!")
                             
-                $("#response-container-2").append(drinkName);
-                $("#response-container-2").append(img);
-                $("#response-container-2").append(ingredientsTitle);
-                
+                    $("#response-container-2").append(drinkName);
+                    $("#response-container-2").append(img);
+                    $("#response-container-2").append(ingredientsTitle);
+                    
                 //iterate over each key/value in dictionary
                 Object.entries(drinkData).forEach(([key, value]) => {
                     if (value === "" || value === null) {
                         //do nothing
                         //this code skips over null values !== logic will not work
-                    } else {//if it has a value
-                        //if the item is an ingredient
+                    } else {// if it has a value
+                        // if the item is an ingredient
                         if (key.startsWith("strMeasure")) {
                                 // add measurement to array
                                 measurements.push(value)
@@ -210,30 +222,27 @@ $(document).ready(function() {
                         }
                     }
                 });
-                // display list with measurement and  ingredient 
+                // display list with measurement and ingredients
                 for (var i = 0; i < ingredients.length; i++) {
                     var meas = measurements[i];
                     var ing = ingredients[i];
+                    if (meas === "" || meas === null || meas === undefined) {
+                        //do nothing
+                        //this code skips over null values !== logic will not work
+                        let line = $("<li>").addClass("drink-instructions recipe-text").text(ing)
+                        $("#response-container-2").append(line)
+                    } else {
                     let line = $("<li>").addClass("drink-instructions recipe-text").text(meas + " " + ing)
                     $("#response-container-2").append(line)
+                    }
                 }
                 $("#response-container-2").append(directionsTitle);
-                var instructions = $("<p>").addClass("drink-instructions recipe-text").attr('id', 'directions').text(data.drinks[0].strInstructions);
-                //var sepInstructions = $(instructions).text().replace(/\./g, ".<br>");
-                //var dispInstructions = $("<p>").addClass("drink-instructions recipe-text").attr('id', 'directions').text(sepInstructions)
-                //$("#response-container-2").append(sepInstructions);
+                var instructions = $("<p>").addClass("drink-instructions recipe-text").attr("id", "directions").text(data.drinks[0].strInstructions);
                 $("#response-container-2").append(instructions);
-                $(".search").append(triviaBtn).on('click', function(){
+                $(".search").append(triviaBtn).on("click", function(){
                     window.location = "./trivia.html";    
                 });
-                
             }
-            
         });
     }   
-    
 });
-
-/*$(document).ready(function(){
-    $('.sidenav').sidenav();
-});*/

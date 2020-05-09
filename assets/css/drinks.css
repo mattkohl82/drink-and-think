@@ -9,7 +9,6 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    /*background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5));*/
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("./drinks.jpg");
 }
 .navbar-default {
@@ -35,7 +34,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 200px; /* Should be removed. Only for demonstration */
     margin: 0 10px;
 }
 .options {
@@ -83,7 +81,9 @@ nav ul a {
     cursor: pointer;
     background-color:rgb(120, 250, 218);
 }
-
+.btn[disabled]:hover {
+    cursor: not-allowed;
+    }
 #myBtn {
     display: none;
     position: fixed;
@@ -127,7 +127,6 @@ nav ul a {
     font-size: 1.5vw;
     text-decoration: bold;
     color: rgb(255, 255, 255);
-    /*text-shadow: 1.5px 1.5px #ffffff;*/
     background: rgba(0, 0, 0, 0.5);
     width: 15rem;
     margin-bottom: 1rem;
@@ -204,11 +203,28 @@ h3 {
     }
     .drink-type {
         font-size: 1.1rem;
-        width: 8.25rem;
+    }
+}
+/* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+@media screen and (max-width: 414px) {
+    .drink-type {
+        width: 9.15rem;
+    }
+    #drinkPic {
+        max-height: 12rem;
+    }
+    h1.recipe-text {
+        font-size: 2.8rem;
+    }
+    h3.recipe-text {
+        font-size: 2.1rem;
+    }
+    .drink-instructions {
+        font-size: 1.1rem;
     }
 }
  /* MEDIA QUERY FOR Small MOBILE PHONES AND SMALLER */
- @media screen and (max-width: 375px) {
+@media screen and (max-width: 375px) {
     .drink-type {
         font-size: 1.1rem;
         width: 8.25rem;
